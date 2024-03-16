@@ -10,13 +10,8 @@ var build_type
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("ready game scene avant node")	
 	map_node = get_node("Level")  ## sélectionner la carte
-	print(map_node)
-	print("ready game scene")
-	print(get_tree().get_nodes_in_group("build_buttons"))
 	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
-		print(button)
 		button.pressed.connect(initiate_build_mode.bind(button.get_name()))
 
 
@@ -26,18 +21,24 @@ func _process(delta):
 		update_tower_preview()
 
 func _unhandled_input(event):
-	if event.is_action_released("ui_cancel") and build_mode:
-		print(build_mode, "unhandle cancel")
-		cancel_build_mode()
-	if event.is_action_released("ui_accept") and (not build_mode):
-		print(build_mode, "unhandle build")		
-		verify_and_build()
-		cancel_build_mode()
+	if not build_mode:
+		return
+		
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				print("Left button was clicked at ", event.position)
+			else:
+				print("Left button was released")	
+				verify_and_build()
+				cancel_build_mode()
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			cancel_build_mode()
+			
 	
-func  initiate_build_mode(tower_type):
+func initiate_build_mode(tower_type):
 	build_type = tower_type + "T1"
 	build_mode = true
-	print("dans build mode")
 	get_node("UI").set_tower_preview(build_type, get_global_mouse_position())
 
 func update_tower_preview():
@@ -61,8 +62,7 @@ func cancel_build_mode():
 func verify_and_build():
 	if build_valid:
 		## on peut verifier les conditions de ressources ici
-	
-		var new_tower = load("res://Scenes/Turret_Bow_1.tscn").instance()  ## modifier avec le chemin d'acces de la tour
+		var new_tower = load("res://Scenes/Turret_Bow_1.tscn").instantiate()  ## modifier avec le chemin d'acces de la tour
 		new_tower.position = build_location
 		map_node.get_node("Towers").add_child(new_tower, true)
 		
