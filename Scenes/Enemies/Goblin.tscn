@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://bg7ofck0e1w2a"]
+
+[ext_resource type="Texture2D" uid="uid://cok0lipq1dydj" path="res://Assets/Enemies/Basic Enemies/goblin/S_Walk.png" id="1_o3ceq"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Goblin.gd" id="1_qf1fl"]
+
+[sub_resource type="Curve2D" id="Curve2D_7fulp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sy7hf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et5jp"]
+atlas = ExtResource("1_o3ceq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8x0t"]
+atlas = ExtResource("1_o3ceq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7yao"]
+atlas = ExtResource("1_o3ceq")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjs0l"]
+atlas = ExtResource("1_o3ceq")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnvuu"]
+atlas = ExtResource("1_o3ceq")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koew5"]
+atlas = ExtResource("1_o3ceq")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oiiqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et5jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8x0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7yao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjs0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnvuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koew5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Node"]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7fulp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath"]
+script = ExtResource("1_qf1fl")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="EnemyPath/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_sy7hf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_oiiqw")
+frame_progress = 0.267536
