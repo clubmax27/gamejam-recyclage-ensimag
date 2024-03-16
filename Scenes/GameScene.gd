@@ -47,11 +47,11 @@ func update_tower_preview():
 	var tile_position =  map_node.get_node("TowerExclusion").map_to_local(current_tile)
 	
 	if map_node.get_node("TowerExclusion").get_cell_source_id(0, current_tile) == -1:
-		get_node("UI").update_tower_preview(tile_position, "ad54ff3c")
+		get_node("UI").update_tower_preview(tile_position, "ad54ff99")
 		build_valid = true
 		build_location = tile_position
 	else:
-		get_node("UI").update_tower_preview(tile_position, "adff4545")
+		get_node("UI").update_tower_preview(tile_position, "ff000099")
 		build_valid = false
 	
 func cancel_build_mode():
