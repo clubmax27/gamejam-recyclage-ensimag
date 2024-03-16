@@ -21,10 +21,6 @@ config/icon="res://icon.svg"
 window/size/viewport_height=640
 mouse_cursor/custom_image="res://Assets/UI/PNG/cursor_pointer3D.png"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/sprite_cutter/plugin.cfg")
-
 [input]
 
 ui_accept={

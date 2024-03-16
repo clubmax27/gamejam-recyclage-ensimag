@@ -498,3 +498,4 @@ visible = false
 position = Vector2(434, 343)
 
 [node name="Towers" type="Node2D" parent="."]
+y_sort_enabled = true
