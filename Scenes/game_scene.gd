@@ -10,10 +10,11 @@ var build_type
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	map_node = get_node("Level_1")  ## select map
+	map_node = get_node("Level_1")  ## sélectionner la carte
+	
+	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
+		button.pressed.connect(initiate_build_mode.bind(button.get_name()))
 
-	for i in get_tree().get_nodes_in_group("build_buttons"):   ## pour que ca marche pour toute les tours et recupere le nom
-		i.connect("pressed", self, "initiate_build_mode", [i.get_name])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -54,7 +55,7 @@ func verify_and_build():
 	if build_valid:
 		## on peut verifier les conditions de ressources ici
 	
-		var new_tower = load("tour.tscn").instance()  ## modifier avec le chemin d'acces de la tour
+		var new_tower = load("Turret_Bow_1.tscn").instance()  ## modifier avec le chemin d'acces de la tour
 		new_tower.position = build_location
 		map_node.get_node("Towers").add_child(new_tower, true)
 		
