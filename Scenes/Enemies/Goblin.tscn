@@ -72,4 +72,4 @@ shape = SubResource("CapsuleShape2D_sy7hf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_oiiqw")
-frame_progress = 0.267536
+frame_progress = 0.0297806

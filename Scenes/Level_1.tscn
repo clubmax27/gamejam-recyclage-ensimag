@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d3rfhwtk785yn" path="res://Assets/Tileset/Tileset/PNGs/Grass Tileset.png" id="1_6rhtg"]
 [ext_resource type="Texture2D" uid="uid://bu7geiibu82s5" path="res://Assets/Tileset/Tileset/PNGs/Animated water tiles.png" id="2_87tt7"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://d4kdwxec0phxp" path="res://Scenes/Turret/Turret_Bow_2.tscn" id="3_i56pi"]
 [ext_resource type="PackedScene" uid="uid://cgaurr4csuwa4" path="res://Scenes/Turret/Turret_Mage_1.tscn" id="4_dabmb"]
 [ext_resource type="PackedScene" uid="uid://bel1jao082s3l" path="res://Scenes/Turret/Turret_Mage_3.tscn" id="5_84s4r"]
@@ -9,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c7xut3wnmooyk" path="res://Scenes/Turret/Turret_Recyclage_1.tscn" id="7_imr1j"]
 [ext_resource type="PackedScene" uid="uid://bdkb4jn4ibwr6" path="res://Scenes/Turret/Turret_Recyclage_3.tscn" id="8_trk32"]
 [ext_resource type="PackedScene" uid="uid://dxfxqmhbxgn05" path="res://Scenes/Turret/Turret_Recyclage_2.tscn" id="9_hq2uu"]
+=======
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grlyf"]
 texture = ExtResource("1_6rhtg")

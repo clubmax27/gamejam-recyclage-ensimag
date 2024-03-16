@@ -7,31 +7,29 @@ var speed = 150
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#map_node = get_parent().get_parent().get_parent()
-	# current_tile = map_node.get_node("TowerExclusion").local_to_map(global_position)
+	set_position(Vector2(345, 80))
+	map_node = get_tree().root.get_child(0).get_node("Level")
+	current_tile = map_node.get_node("TowerExclusion").local_to_map(global_position)
 	
-	print("configuring")
-	#configure_path_node()
-	#var enemy_path = get_node("EnemyPath")
+	configure_path_node()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	print("moving")
-	move(delta)
 	print(progress_ratio)
+	move(delta)
 
 func move(delta):
-	var moved_distance = speed * delta
-	global_translate(global_position + Vector2(moved_distance, moved_distance))
+	print(progress)
+	set_progress(progress + speed * delta)
 	
 func configure_path_node():
 	var path_array = generate_path()
-	var path = get_node("EnemyPath")
+	var path = get_parent().curve
 	
 	for path_tile in path_array:
-		print(path_tile)
-		path.add_point(path_tile)
+		var tile_position = map_node.get_node("TowerExclusion").map_to_local(path_tile)
+		path.add_point(tile_position)
 		
 	
 	
