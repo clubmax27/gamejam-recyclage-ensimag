@@ -65,4 +65,4 @@ region_rect = Rect2(0, 28.9184, 64.3754, 99.0816)
 [node name="Bow" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -26)
 sprite_frames = SubResource("SpriteFrames_stl8l")
-frame_progress = 0.696238
+frame_progress = 0.0922659
