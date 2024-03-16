@@ -3,8 +3,8 @@ extends CanvasLayer
 func set_tower_preview(tower_type, mouse_position):
 	print(tower_type)
 	#var drag_tower = load("res://Scenes/Turret/Turret_Mage_1.tscn").instantiate()  ## a modifier pour mettre le chemin
-	
 	var drag_tower = load("res://Scenes/Turret/Turret_" + tower_type + "_1.tscn").instantiate()  ## a modifier pour mettre le chemin
+
 	drag_tower.set_name("DragTower")
 	drag_tower.modulate = Color("ad54ff3c")
 	
