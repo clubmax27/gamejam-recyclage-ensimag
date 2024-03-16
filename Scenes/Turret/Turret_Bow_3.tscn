@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dd334e8o2kk1h"]
+[gd_scene load_steps=12 format=3 uid="uid://c1mai4douavu7"]
 
 [ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="1_i75j7"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Bow_3.gd" id="1_rdn0a"]
 [ext_resource type="Texture2D" uid="uid://cc7o7ndfy5jdc" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 03 - Weapon.png" id="2_edj3m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofg6b"]
@@ -58,6 +59,7 @@ animations = [{
 }]
 
 [node name="Turret_Bow_3" type="Node2D"]
+script = ExtResource("1_rdn0a")
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_ofg6b")

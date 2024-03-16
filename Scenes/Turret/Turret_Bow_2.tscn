@@ -67,4 +67,4 @@ texture = SubResource("AtlasTexture_w17kd")
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_b71v3")
-frame_progress = 0.384574
+frame_progress = 0.781228

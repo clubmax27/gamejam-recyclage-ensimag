@@ -1,8 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://vrwwiufn4b1k"]
+[gd_scene load_steps=17 format=3 uid="uid://vrwwiufn4b1k"]
 
 [ext_resource type="Texture2D" uid="uid://d3rfhwtk785yn" path="res://Assets/Tileset/Tileset/PNGs/Grass Tileset.png" id="1_6rhtg"]
 [ext_resource type="Texture2D" uid="uid://bu7geiibu82s5" path="res://Assets/Tileset/Tileset/PNGs/Animated water tiles.png" id="2_87tt7"]
 [ext_resource type="PackedScene" uid="uid://d4kdwxec0phxp" path="res://Scenes/Turret/Turret_Bow_2.tscn" id="3_i56pi"]
+[ext_resource type="PackedScene" uid="uid://cgaurr4csuwa4" path="res://Scenes/Turret/Turret_Mage_1.tscn" id="4_dabmb"]
+[ext_resource type="PackedScene" uid="uid://bel1jao082s3l" path="res://Scenes/Turret/Turret_Mage_3.tscn" id="5_84s4r"]
+[ext_resource type="PackedScene" uid="uid://hbmi0327dyan" path="res://Scenes/Turret/Turret_Mage_2.tscn" id="6_ahp2b"]
+[ext_resource type="PackedScene" uid="uid://c7xut3wnmooyk" path="res://Scenes/Turret/Turret_Recyclage_1.tscn" id="7_imr1j"]
+[ext_resource type="PackedScene" uid="uid://bdkb4jn4ibwr6" path="res://Scenes/Turret/Turret_Recyclage_3.tscn" id="8_trk32"]
+[ext_resource type="PackedScene" uid="uid://dxfxqmhbxgn05" path="res://Scenes/Turret/Turret_Recyclage_2.tscn" id="9_hq2uu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_grlyf"]
 texture = ExtResource("1_6rhtg")
@@ -502,3 +508,21 @@ y_sort_enabled = true
 
 [node name="Turret_Bow_2" parent="." instance=ExtResource("3_i56pi")]
 position = Vector2(426, 345)
+
+[node name="Turret_Mage_1" parent="." instance=ExtResource("4_dabmb")]
+position = Vector2(712, 363)
+
+[node name="TurretMage3" parent="." instance=ExtResource("5_84s4r")]
+position = Vector2(972, 336)
+
+[node name="TurretMage2" parent="." instance=ExtResource("6_ahp2b")]
+position = Vector2(831, 315)
+
+[node name="TurretRecyclage1" parent="." instance=ExtResource("7_imr1j")]
+position = Vector2(696, 486)
+
+[node name="TurretRecyclage3" parent="." instance=ExtResource("8_trk32")]
+position = Vector2(901, 464)
+
+[node name="TurretRecyclage2" parent="." instance=ExtResource("9_hq2uu")]
+position = Vector2(803, 473)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=12 format=3 uid="uid://c7c10jj2efynm"]
 
 [ext_resource type="PackedScene" uid="uid://vrwwiufn4b1k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
@@ -6,10 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://dc5pjyt8d43em" path="res://Assets/UI/PNG/blue_button12.png" id="3_4rr63"]
 [ext_resource type="Script" path="res://Scenes/UI.gd" id="3_y8kgv"]
 [ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="4_308g5"]
+[ext_resource type="Texture2D" uid="uid://bb4knkmm6d5fp" path="res://Assets/Towers/Towers bases/PNGs/Tower 08.png" id="6_gk101"]
+[ext_resource type="Texture2D" uid="uid://74l78y3noixb" path="res://Assets/Towers/Towers bases/PNGs/Tower 02.png" id="7_b4acm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kqk8"]
 atlas = ExtResource("4_308g5")
-region = Rect2(0, 30.6685, 63.9071, 98.3777)
+region = Rect2(-0.272781, 27.2512, 64.5357, 101.206)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0ury"]
+atlas = ExtResource("7_b4acm")
+region = Rect2(0, 81.3245, 64.4442, 110.675)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl4ir"]
+atlas = ExtResource("6_gk101")
+region = Rect2(0, 91.801, 65.211, 100.199)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_rltjy")
@@ -37,7 +47,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 15
 
-[node name="BowButton" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
+[node name="Bow" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -45,7 +55,7 @@ texture_normal = ExtResource("2_rxwos")
 texture_pressed = ExtResource("3_4rr63")
 stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/BowButton"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Bow"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,21 +67,20 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 18
 
-[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/BowButton/MarginContainer"]
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/Bow/MarginContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_0kqk8")
 expand_mode = 4
 
-[node name="BowButton2" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
+[node name="Mage" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("2_rxwos")
 texture_pressed = ExtResource("3_4rr63")
 stretch_mode = 4
-metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/BowButton2"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Mage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,12 +92,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 18
 
-[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/BowButton2/MarginContainer"]
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/Mage/MarginContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_0kqk8")
+texture = SubResource("AtlasTexture_k0ury")
 expand_mode = 4
 
-[node name="BowButton3" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
+[node name="Recyclage" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -96,7 +105,7 @@ texture_normal = ExtResource("2_rxwos")
 texture_pressed = ExtResource("3_4rr63")
 stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/BowButton3"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Recyclage"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,7 +117,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 18
 
-[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/BowButton3/MarginContainer"]
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/Recyclage/MarginContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_0kqk8")
+texture = SubResource("AtlasTexture_dl4ir")
 expand_mode = 4
