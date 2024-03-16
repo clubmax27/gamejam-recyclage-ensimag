@@ -14,7 +14,7 @@ func _ready():
 	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
 		button.pressed.connect(initiate_build_mode.bind(button.get_name()))
 	
-	#start_next_wave()
+	start_next_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,6 +72,7 @@ func verify_and_build():
 		var new_tower = load("res://Scenes/Turret/Turret_" + build_type + "_1.tscn").instantiate()  ## modifier avec le chemin d'acces de la tour
 		new_tower.position = build_location
 		map_node.get_node("Towers").add_child(new_tower, true)
+		get_tree().call_group("enemies_path", "reconfigure_path_node")
 		
 		## enlever les ressources 
 		## update player ui
@@ -101,6 +102,11 @@ func is_valid_position(current_tile) -> bool:
 			
 		astargrid.set_point_solid(tower_tile)
 	
+	# Exclude places where the mobs are
+	for mob in get_tree().get_nodes_in_group("enemies_path"):
+		var mob_tile = map_node.get_node("TowerExclusion").local_to_map(mob.position)
+		if(mob_tile == current_tile):
+			return false
 	
 	# Put the hovered tile as solid, so we check if it's blocking the path or not
 	astargrid.set_point_solid(current_tile)
@@ -114,23 +120,23 @@ func is_valid_position(current_tile) -> bool:
 
 
 ## Wave functions
-#var current_wave = 0
-#var enemies_in_wave = 0
-#
-#func start_next_wave():
-	#var wave_data = retrieve_wave_data()
-	#await get_tree().create_timer(0.2).timeout
-	#spawn_enemies(wave_data)
-	#
-#func retrieve_wave_data():
-	#var wave_data = [["Goblin", 0.7]]
-	#current_wave += 1
-	#enemies_in_wave = wave_data.size()
-	#return wave_data
+var current_wave = 0
+var enemies_in_wave = 0
 
-#func spawn_enemies(wave_data):
-	#for enemy_data in wave_data:
-		#var new_enemy = load("res://Scenes/Enemies/" + enemy_data[0] + ".tscn").instantiate()
-		#map_node.get_node("Enemies").add_child(new_enemy, true)
-		#await get_tree().create_timer(enemy_data[1]).timeout
+func start_next_wave():
+	var wave_data = retrieve_wave_data()
+	await get_tree().create_timer(0.2).timeout
+	spawn_enemies(wave_data)
+	
+func retrieve_wave_data():
+	var wave_data = [["Goblin", 0.7]]
+	current_wave += 1
+	enemies_in_wave = wave_data.size()
+	return wave_data
+
+func spawn_enemies(wave_data):
+	for enemy_data in wave_data:
+		var new_enemy = load("res://Scenes/Enemies/" + enemy_data[0] + ".tscn").instantiate()
+		map_node.get_node("Enemies").add_child(new_enemy, true)
+		await get_tree().create_timer(enemy_data[1]).timeout
 		

@@ -62,14 +62,14 @@ animations = [{
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_7fulp")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath"]
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath" groups=["enemies_path"]]
 script = ExtResource("1_qf1fl")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="EnemyPath/PathFollow2D"]
+[node name="Goblin" type="CharacterBody2D" parent="EnemyPath/PathFollow2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/Goblin"]
 shape = SubResource("CapsuleShape2D_sy7hf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Goblin"]
 sprite_frames = SubResource("SpriteFrames_oiiqw")
 frame_progress = 0.0297806
