@@ -46,7 +46,7 @@ func update_tower_preview():
 	var current_tile = map_node.get_node("TowerExclusion").local_to_map(mouse_position)
 	var tile_position =  map_node.get_node("TowerExclusion").map_to_local(current_tile)
 	
-	if map_node.get_node("TowerExclusion").get_cell_source_id(0, current_tile) == -1:
+	if is_valid_position(current_tile):
 		get_node("UI").update_tower_preview(tile_position, "ad54ff99")
 		build_valid = true
 		build_location = tile_position
@@ -68,3 +68,38 @@ func verify_and_build():
 		
 		## enlever les ressources 
 		## update player ui
+		
+func is_valid_position(current_tile) -> bool:
+	# Check if node is a TowerExclusion Tile
+	if not map_node.get_node("TowerExclusion").get_cell_source_id(0, current_tile) == -1:
+		return false
+	
+	var astargrid = AStarGrid2D.new()
+	astargrid.size = Vector2i(18,10)
+	astargrid.cell_size = Vector2i(64, 64)
+	astargrid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	astargrid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	astargrid.update()
+	
+	# Setup A* Grid to exclude the TowerExclusion tiles
+	var TowerExclusion = map_node.get_node("TowerExclusion")
+	for cell in TowerExclusion.get_used_cells(0):
+		astargrid.set_point_solid(cell)
+		
+	# Exclude the towers
+	for tower in map_node.get_node("Towers").get_children():
+		var tower_tile = map_node.get_node("TowerExclusion").local_to_map(tower.position)
+		if(tower_tile == current_tile):
+			return false
+			
+		astargrid.set_point_solid(tower_tile)
+	
+	
+	# Put the hovered tile as solid, so we check if it's blocking the path or not
+	astargrid.set_point_solid(current_tile)
+	
+	# Remove start and end cell
+	astargrid.set_point_solid(Vector2i(1 , 5), false)
+	astargrid.set_point_solid(Vector2i(17 , 5), false)
+	
+	return not astargrid.get_id_path(Vector2i(1, 5), Vector2i(17 , 5)).is_empty()
