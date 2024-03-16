@@ -1,0 +1,14 @@
+Node2D
+MarginContainer
+TextureRect
+HBoxContainer
+TextureButton
+VBoxContainer
+Control
+CanvasLayer
+Node
+Label
+AnimatedSprite2D
+Sprite2D
+Camera2D
+TileMap
