@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://p7m86hhq6t"]
 
 [ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="1_eqsrv"]
-[ext_resource type="Script" path="res://Scenes/Turret_Bow_1.gd" id="1_svrf6"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Bow_1.gd" id="1_svrf6"]
 [ext_resource type="Texture2D" uid="uid://d3dceykau5qpk" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_n1ryf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk1gp"]
