@@ -13,6 +13,7 @@ func _ready():
 	print("ready game scene avant node")	
 	map_node = get_node("Level_1")  ## sélectionner la carte
 	print("ready game scene")
+	print(get_tree().get_nodes_in_group("build_buttons"))
 	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
 		print(button)
 		button.pressed.connect(initiate_build_mode.bind(button.get_name()))

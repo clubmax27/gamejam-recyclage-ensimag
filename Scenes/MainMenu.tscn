@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dac2b4im7gnb2" path="res://Assets/Main menu/ENSIMAG background.jpg" id="1_ww3wh"]
 [ext_resource type="Texture2D" uid="uid://cv4t6tjtpn7et" path="res://Assets/UI/PNG/blue_button00.png" id="2_u4w8e"]
 [ext_resource type="Texture2D" uid="uid://d0s4y5uxpn5o1" path="res://Assets/UI/PNG/blue_button05.png" id="3_la3h0"]
-[ext_resource type="FontFile" uid="uid://br8yliaheopkv" path="res://Scenes/button_font.tres" id="4_te37i"]
+[ext_resource type="FontFile" path="res://Scenes/button_font.tres" id="4_te37i"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
