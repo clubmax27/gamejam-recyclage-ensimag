@@ -13,11 +13,13 @@ config_version=5
 config/name="Gamejam-recyclage-ensimag"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_height=640
+mouse_cursor/custom_image="res://Assets/UI/PNG/cursor_pointer3D.png"
 
 [editor_plugins]
 

@@ -1,7 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=6 format=3 uid="uid://c7c10jj2efynm"]
 
 [ext_resource type="PackedScene" uid="uid://vrwwiufn4b1k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
+[ext_resource type="Texture2D" uid="uid://dlp82jtfo3ipm" path="res://Assets/UI/PNG/blue_button07.png" id="2_rxwos"]
+[ext_resource type="Texture2D" uid="uid://dc5pjyt8d43em" path="res://Assets/UI/PNG/blue_button12.png" id="3_4rr63"]
+[ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="4_308g5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kqk8"]
+atlas = ExtResource("4_308g5")
+region = Rect2(0, 30.6685, 63.9071, 98.3777)
 
 [node name="GameScene" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource("1_cppfn")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Build Box" type="HBoxContainer" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 164.0
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="BowButton" type="TextureButton" parent="UI/HUD/Build Box"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_rxwos")
+texture_pressed = ExtResource("3_4rr63")
+stretch_mode = 4
+
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/BowButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = SubResource("AtlasTexture_0kqk8")
+expand_mode = 2
+
+[node name="BowButton2" type="TextureButton" parent="UI/HUD/Build Box"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_rxwos")
+texture_pressed = ExtResource("3_4rr63")
+stretch_mode = 4
+
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/BowButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -27.0
+offset_right = 47.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = SubResource("AtlasTexture_0kqk8")
+expand_mode = 2
