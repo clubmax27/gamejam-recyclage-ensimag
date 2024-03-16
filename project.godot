@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Gamejam-recyclage-ensimag"
+run/main_scene="res://Scenes/Level_1.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_height=640
 
 [rendering]
 
