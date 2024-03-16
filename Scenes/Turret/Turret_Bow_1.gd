@@ -1,10 +1,9 @@
 extends Node2D
 
-@onready var bow = get_node("Bow")
+@onready var bow = get_node("Weapon")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("Towers")
 	pass # Replace with function body.
 
 
