@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://y20m03md5nlc"]
+
+[ext_resource type="Texture2D" uid="uid://bb4knkmm6d5fp" path="res://Assets/Towers/Towers bases/PNGs/Tower 08.png" id="1_hmb6g"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Recyclage_2.gd" id="1_p5n73"]
+[ext_resource type="Texture2D" uid="uid://dtuldn3k4ytm7" path="res://Assets/Towers/Towers Weapons/Tower 08/Spritesheets/Tower 08 - Level 02 - Weapon.png" id="2_32j5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm578"]
+atlas = ExtResource("1_hmb6g")
+region = Rect2(63.2287, 84.4338, 66.3135, 107.566)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nemc5"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xasy7"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8p2i"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqbet"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q1dt"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sjqd"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkqla"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_webks"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta0fu"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4cds"]
+atlas = ExtResource("2_32j5q")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5pwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nemc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xasy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8p2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqbet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q1dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sjqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkqla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_webks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta0fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4cds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="TurretRecyclage2" type="Node2D"]
+script = ExtResource("1_p5n73")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nm578")
+
+[node name="Weapon" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -37)
+sprite_frames = SubResource("SpriteFrames_s5pwh")
+frame = 7
+frame_progress = 0.722979

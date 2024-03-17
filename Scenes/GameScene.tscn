@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=22 format=3 uid="uid://c7c10jj2efynm"]
 
-[ext_resource type="PackedScene" uid="uid://dx7gs61tr5m8k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
+[ext_resource type="PackedScene" uid="uid://vrwwiufn4b1k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
 [ext_resource type="Texture2D" uid="uid://dlp82jtfo3ipm" path="res://Assets/UI/PNG/blue_button07.png" id="2_rxwos"]
 [ext_resource type="Texture2D" uid="uid://dc5pjyt8d43em" path="res://Assets/UI/PNG/blue_button12.png" id="3_4rr63"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://di2ldw8o6goit" path="res://Assets/Image UI/md-fastforward-1-64.png" id="11_tinvq"]
 [ext_resource type="Texture2D" uid="uid://doks1igpngv4c" path="res://Assets/Image UI/ios-fastforward-outline-64.png" id="12_eu0gy"]
 [ext_resource type="Texture2D" uid="uid://br0vx0k76wsi3" path="res://Assets/Image UI/Gold, silver, and copper.png" id="13_58k2l"]
+[ext_resource type="Texture2D" uid="uid://c68vupcw5adgu" path="res://Assets/UI/PNG/barHorizontal_red_mid.png" id="14_fkxqe"]
+[ext_resource type="Texture2D" uid="uid://drcgyt7845clb" path="res://Assets/UI/PNG/barHorizontal_shadow_mid.png" id="15_5lfgs"]
+[ext_resource type="Texture2D" uid="uid://c1ghqcd47alqe" path="res://Assets/UI/PNG/barHorizontal_green_mid.png" id="16_n5jii"]
+[ext_resource type="Texture2D" uid="uid://dnivtbm32nox1" path="res://Assets/Image UI/transparent_2024-03-17T10-41-35.png" id="17_oobsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kqk8"]
 atlas = ExtResource("4_308g5")
@@ -165,13 +169,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_8ryyv")
-expand_mode = 4
-
 [node name="Money value" type="Label" parent="UI/HUD/InfoBar/HBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "9999"
+
+[node name="Money" type="TextureRect" parent="UI/HUD/InfoBar/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8ryyv")
+expand_mode = 3
+
+[node name="HP bar" type="TextureProgressBar" parent="UI/HUD/InfoBar/HBoxContainer"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../heart")
+value = 10.0
+rounded = true
+nine_patch_stretch = true
+texture_under = ExtResource("14_fkxqe")
+texture_over = ExtResource("15_5lfgs")
+texture_progress = ExtResource("16_n5jii")
+
+[node name="heart" type="TextureRect" parent="UI/HUD/InfoBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("17_oobsl")
+expand_mode = 3
 
 [connection signal="pressed" from="UI/HUD/Game controller/PausePlay" to="UI" method="_on_pause_play_pressed"]
 [connection signal="pressed" from="UI/HUD/Game controller/SpeedUp" to="UI" method="_on_speed_up_pressed"]
