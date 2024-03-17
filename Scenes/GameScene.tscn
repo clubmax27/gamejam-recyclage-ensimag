@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=35 format=3 uid="uid://c7c10jj2efynm"]
 
 [ext_resource type="PackedScene" uid="uid://vrwwiufn4b1k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bb4knkmm6d5fp" path="res://Assets/Towers/Towers bases/PNGs/Tower 08.png" id="6_gk101"]
 [ext_resource type="Texture2D" uid="uid://74l78y3noixb" path="res://Assets/Towers/Towers bases/PNGs/Tower 02.png" id="7_b4acm"]
 [ext_resource type="Texture2D" uid="uid://bfxxwwy05aiyq" path="res://Assets/Image UI/play-button-6-64.png" id="9_gj58q"]
+[ext_resource type="Texture2D" uid="uid://b558w5f01od3r" path="res://Assets/Towers/Towers bases/PNGs/Tower 05.png" id="9_s0cvx"]
+[ext_resource type="Texture2D" uid="uid://f0b6m7mg2jue" path="res://Assets/Towers/Towers bases/PNGs/Tower 06.png" id="10_7h26s"]
 [ext_resource type="Texture2D" uid="uid://5tml1arxupjx" path="res://Assets/Image UI/icon-pause-64.png" id="10_cas1f"]
 [ext_resource type="Texture2D" uid="uid://di2ldw8o6goit" path="res://Assets/Image UI/md-fastforward-1-64.png" id="11_tinvq"]
 [ext_resource type="Texture2D" uid="uid://doks1igpngv4c" path="res://Assets/Image UI/ios-fastforward-outline-64.png" id="12_eu0gy"]
@@ -36,6 +38,14 @@ region = Rect2(0, 81.3245, 64.4442, 110.675)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dl4ir"]
 atlas = ExtResource("6_gk101")
 region = Rect2(0, 91.801, 65.211, 100.199)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poxs5"]
+atlas = ExtResource("9_s0cvx")
+region = Rect2(0, 21.0845, 65.784, 106.41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66ap6"]
+atlas = ExtResource("10_7h26s")
+region = Rect2(0, 23.1326, 64.771, 104.867)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ryyv"]
 atlas = ExtResource("13_58k2l")
@@ -149,6 +159,43 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_dl4ir")
 expand_mode = 4
 
+[node name="Turret_Upgrade_Mage" type="TextureButton" parent="UI/HUD/Build Box"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("3_4rr63")
+stretch_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Turret_Upgrade_Mage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/Build Box/Turret_Upgrade_Mage/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_poxs5")
+expand_mode = 4
+
+[node name="Turret_Upgrade_Arc" type="TextureButton" parent="UI/HUD/Build Box"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("3_4rr63")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Turret_Upgrade_Arc"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/Build Box/Turret_Upgrade_Arc/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_66ap6")
+expand_mode = 4
+
 [node name="Game controller" type="HBoxContainer" parent="UI/HUD"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -171,6 +218,7 @@ texture_normal = ExtResource("11_tinvq")
 texture_pressed = ExtResource("12_eu0gy")
 
 [node name="InfoBar" type="ColorRect" parent="UI/HUD"]
+visible = false
 self_modulate = Color(0, 0, 0, 0.470588)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -214,6 +262,7 @@ texture = ExtResource("17_oobsl")
 expand_mode = 3
 
 [node name="Dialogue" type="ColorRect" parent="UI"]
+visible = false
 self_modulate = Color(0, 0, 0, 0.470588)
 custom_minimum_size = Vector2(0, 50)
 anchors_preset = 15
