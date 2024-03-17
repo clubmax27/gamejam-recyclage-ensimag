@@ -221,7 +221,17 @@ var wave_data = [   ##### VAGUE 1  #####
 	},
 	{
 		"enemy_type": "Golem",
-		"quantity": 5,
+		"quantity": 4,
+		"delay": 3
+	},	
+	{
+		"enemy_type": "Golem",
+		"quantity": 1,
+		"delay": 10
+	},
+	{
+		"enemy_type": "Minotaur",
+		"quantity": 1,
 		"delay": 3
 	},
 	] 
@@ -263,6 +273,12 @@ var enemy_data = {
 		"speed": 40,
 		"damage": 20,
 		"gold": 100
+	},
+		"Minotaur" : {
+		"hp": 6000,
+		"speed": 120,
+		"damage": 30,
+		"gold": 1000
 	}
 }
 
