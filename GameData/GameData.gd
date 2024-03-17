@@ -128,13 +128,17 @@ var wave_data = [   ##### VAGUE 1  #####
 	},
 	{
 		"enemy_type": "Goblin",
-		"quantity": 5,
+		"quantity": 25,
 		"delay": 0.5
 	},
 	{
 		"enemy_type": "Wolf",
 		"quantity": 20,
 		"delay": 0.3
+	},{
+		"enemy_type": "Goblin",
+		"quantity": 25,
+		"delay": 0.5
 	}
 	],[  ##### VAGUE 7  #####
 	{
@@ -144,13 +148,13 @@ var wave_data = [   ##### VAGUE 1  #####
 	},
 	{
 		"enemy_type": "Bee",
-		"quantity": 5,
+		"quantity": 50,
 		"delay": 0.3
 	},
 	{
 		"enemy_type": "Small Blob",
-		"quantity": 50,
-		"delay": 0.2
+		"quantity": 100,
+		"delay": 0.3
 	},
 	],[     #### VAGUE 8 #####
 	{
@@ -186,38 +190,48 @@ var wave_data = [   ##### VAGUE 1  #####
 	},
 	{
 		"enemy_type": "Wolf",
-		"quantity": 10,
+		"quantity": 100,
 		"delay": 0.2
 	}
 	],[  #### VAGUE 10 #####
 	{
 		"enemy_type": "Wolf",
+		"quantity": 50,
+		"delay": 0.2
+	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 1,
+		"delay": 5
+	},
+	{
+		"enemy_type": "Bee",
 		"quantity": 30,
 		"delay": 0.2
 	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 2,
+		"delay": 2
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 2,
+		"delay": 10
+	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 4,
+		"delay": 3
+	},	
 	{
 		"enemy_type": "Golem",
 		"quantity": 1,
 		"delay": 10
 	},
 	{
-		"enemy_type": "Bee",
-		"quantity": 30,
-		"delay": 0.5
-	},
-	{
-		"enemy_type": "Golem",
-		"quantity": 2,
-		"delay": 4
-	},
-	{
-		"enemy_type": "Goblin",
-		"quantity": 2,
-		"delay": 15
-	},
-	{
-		"enemy_type": "Golem",
-		"quantity": 5,
+		"enemy_type": "Minotaur",
+		"quantity": 1,
 		"delay": 3
 	},
 	] 
@@ -240,7 +254,7 @@ var enemy_data = {
 		"hp": 50,
 		"speed": 40,
 		"damage": 5,
-		"gold": 5
+		"gold": 2
 	},
 	"Big Blob" : {
 		"hp": 10,
@@ -252,13 +266,19 @@ var enemy_data = {
 		"hp": 10,
 		"speed": 200,
 		"damage": 5,
-		"gold": 5
+		"gold": 3
 	},
 	"Golem" : {
 		"hp": 3000,
 		"speed": 40,
 		"damage": 20,
-		"gold": 200
+		"gold": 100
+	},
+		"Minotaur" : {
+		"hp": 6000,
+		"speed": 120,
+		"damage": 30,
+		"gold": 1000
 	}
 }
 
