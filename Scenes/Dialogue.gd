@@ -2,16 +2,40 @@ extends Control
 
 var messages = [{
 		"message" : "C'est une catastrophe ! A force de se faire vanner sur le fait qu'ils ont rien gagné aux OL'INP'iades, les Phelmas sont en train de se venger en attaquant l'ENSIMAG !",
-		"character" : 0,
-	},
-	{
-		"message" : "J'adore le JAVA",
 		"character" : 1,
 	},
 	{
-		"message" : "ah oeeeeeeeeeeeeeeeeeee",
+		"message" : "Il faut à tout prix les arrêter ! On va construire des tourelles pour leur éclater la gueule !",
 		"character" : 0,
-	}
+	},
+	{
+		"message" : "Mais on aura jamais assez de resources pour tous les arreter ???? T'as cablé Maxence.",
+		"character" : 1,
+	},
+	{
+		"message" : "Bien sûr que si, t'as rien écouté à la semaine kaléidoscope de transition écologique toi.",
+		"character" : 0,
+	},
+	{
+		"message" : "Si mais j'avais coding dojo :)",
+		"character" : 1,
+	},
+	{
+		"message" : "Ouais bah moi j'avais écologie toute la semaine enfoiré.",
+		"character" : 0,
+	},
+	{
+		"message" : "Mais bref, il existe une tour en bois qui permet de recycler ce qu'on trouve sur le cadavre des Phelmas pour le transformer en resources pour construire des tours.",
+		"character" : 0,
+	},
+	{
+		"message" : "Mais du coup il faut forcément placer des tours en bois à coté du combat, sinon on aura jamais de quoi les repousser ...",
+		"character" : 0,
+	},
+	{
+		"message" : "Mmh, ok, je vois. Allons foutre une raclée au Phelmas, comme d'habitude.",
+		"character" : 1,
+	},
 ]
 
 var typing_speed = .05
@@ -32,15 +56,15 @@ func start_dialogue():
 	display = ""
 	current_char = 0
 	
-	$Dialogue/TextBackground/MarginContainer/NextCharTimer.set_wait_time(typing_speed)
-	$Dialogue/TextBackground/MarginContainer/NextCharTimer.start()
+	$Control/TextBackground/MarginContainer/NextCharTimer.set_wait_time(typing_speed)
+	$Control/TextBackground/MarginContainer/NextCharTimer.start()
 		
 	if messages[current_message]["character"] == 0:
-		$Dialogue/TextBackground/Maxence.set_visible(true)
-		$Dialogue/TextBackground/Jacques.set_visible(false)
+		$Control/TextBackground/Maxence.set_visible(true)
+		$Control/TextBackground/Jacques.set_visible(false)
 	else:
-		$Dialogue/TextBackground/Jacques.set_visible(true)
-		$Dialogue/TextBackground/Maxence.set_visible(false)
+		$Control/TextBackground/Jacques.set_visible(true)
+		$Control/TextBackground/Maxence.set_visible(false)
 
 func stop_dialogue():
 	set_visible(false)
@@ -51,10 +75,8 @@ func _input(_ev):
 		if message_still_writing:
 			message_still_writing = false
 			finish_message()
-			print("skipping")
 		else:
 			next_message()
-			print("next message")
 	
 	
 		
@@ -65,15 +87,15 @@ func _on_next_char_timer_timeout():
 		var next_char = messages[current_message]["message"][current_char]
 		display += next_char
 		
-		$Dialogue/TextBackground/MarginContainer/Message.text = display
+		$Control/TextBackground/MarginContainer/Message.text = display
 		current_char += 1
 	else:
 		message_still_writing = false
-		$Dialogue/TextBackground/MarginContainer/NextCharTimer.stop()
+		$Control/TextBackground/MarginContainer/NextCharTimer.stop()
 
 func finish_message():
-	$Dialogue/TextBackground/MarginContainer/NextCharTimer.stop()
-	$Dialogue/TextBackground/MarginContainer/Message.text = messages[current_message]["message"]
+	$Control/TextBackground/MarginContainer/NextCharTimer.stop()
+	$Control/TextBackground/MarginContainer/Message.text = messages[current_message]["message"]
 
 func next_message():
 	if (current_message == len(messages) - 1):
@@ -84,11 +106,11 @@ func next_message():
 		current_char = 0
 		
 		if messages[current_message]["character"] == 0:
-			$Dialogue/TextBackground/Maxence.set_visible(true)
-			$Dialogue/TextBackground/Jacques.set_visible(false)
+			$Control/TextBackground/Maxence.set_visible(true)
+			$Control/TextBackground/Jacques.set_visible(false)
 		else:
-			$Dialogue/TextBackground/Jacques.set_visible(true)
-			$Dialogue/TextBackground/Maxence.set_visible(false)
+			$Control/TextBackground/Jacques.set_visible(true)
+			$Control/TextBackground/Maxence.set_visible(false)
 		
-		$Dialogue/TextBackground/MarginContainer/NextCharTimer.start()
+		$Control/TextBackground/MarginContainer/NextCharTimer.start()
 
