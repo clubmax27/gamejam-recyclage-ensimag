@@ -6,49 +6,55 @@ var player_gold = 500
 var wave_data = [   ##### VAGUE 1  #####
 	[{
 		"enemy_type": "Goblin",
-		"quantity": 1,
-		"delay": 0.3
-	},
-	{
-		"enemy_type": "Wolf",
-		"quantity": 1,
-		"delay": 0.7
-	},
-	{
-		"enemy_type": "Small Blob",
-		"quantity": 1,
-		"delay": 1
-	},
-	{
-		"enemy_type": "Big Blob",
-		"quantity": 1,
-		"delay": 1
-	},
-	{
-		"enemy_type": "Bee",
-		"quantity": 1,
-		"delay": 1
-	},
-	{
-		"enemy_type": "Golem",
-		"quantity": 1,
-		"delay": 1
-	}],
-	[{
-		"enemy_type": "Goblin",
 		"quantity": 2,
 		"delay": 0.3
 	},
 	{
-		"enemy_type": "Wolf",
+		"enemy_type": "Goblin",
 		"quantity": 3,
 		"delay": 0.7
 	},
 	{
 		"enemy_type": "Goblin",
-		"quantity": 7,
+		"quantity": 4,
+		"delay": 0.5
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 6,
+		"delay": 0.1
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 1,
 		"delay": 1
-	}],     ##### VAGUE 2  #####
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 1,
+		"delay": 1
+	}],  ##### VAGUE 2  #####
+	[{
+		"enemy_type": "Goblin",
+		"quantity": 10,
+		"delay": 0.3
+	},
+	{
+		"enemy_type": "Wolf",
+		"quantity": 20,
+		"delay": 0.5
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 7,
+		"delay": 0.5
+	},
+	{
+		"enemy_type": "Wolf",
+		"quantity": 3,
+		"delay": 0.5
+	},
+	],     ##### VAGUE 3  #####
 	[{
 		"enemy_type": "Goblin",
 		"quantity": 10,
@@ -68,29 +74,29 @@ var wave_data = [   ##### VAGUE 1  #####
 		"enemy_type": "Wolf",
 		"quantity": 5,
 		"delay": 0.6
-	}],   ##### VAGUE 3  #####
+	}],   ##### VAGUE 4  #####
 	[{
 		"enemy_type": "Goblin",
 		"quantity": 10,
 		"delay": 0.3
 	},
 	{
-		"enemy_type": "Blob",
+		"enemy_type": "Small Blob",
 		"quantity": 50,
 		"delay": 0.1
 	},
 	{
 		"enemy_type": "Wolf",
 		"quantity": 10,
-		"delay": 1
-	}],  ##### VAGUE 4  #####
+		"delay": 0.5
+	}],  ##### VAGUE 5  #####
 	[{
 		"enemy_type": "Goblin",
 		"quantity": 10,
-		"delay": 0.1
+		"delay": 0.2
 	},
 	{
-		"enemy_type": "wolf",
+		"enemy_type": "Wolf",
 		"quantity": 10,
 		"delay": 0.2
 	},
@@ -103,34 +109,124 @@ var wave_data = [   ##### VAGUE 1  #####
 		"enemy_type": "Wolf",
 		"quantity": 10,
 		"delay": 0.3
-	}],   ##### VAGUE 5  #####
-	[{
-		"enemy_type": "Goblin",
-		"quantity": 5,
-		"delay": 0.1
 	},
 	{
 		"enemy_type": "Golem",
 		"quantity": 2,
-		"delay": 0.1
+		"delay": 2
+	}
+	],   ##### VAGUE 6  #####
+	[{
+		"enemy_type": "Goblin",
+		"quantity": 5,
+		"delay": 0.15
+	},
+	{
+		"enemy_type": "Big Blob",
+		"quantity": 25,
+		"delay": 0.2
 	},
 	{
 		"enemy_type": "Goblin",
 		"quantity": 5,
-		"delay": 0.1
+		"delay": 0.5
 	},
 	{
 		"enemy_type": "Wolf",
 		"quantity": 20,
 		"delay": 0.3
 	}
-	]
+	],[  ##### VAGUE 7  #####
+	{
+		"enemy_type": "Small Blob",
+		"quantity": 50,
+		"delay": 0.2
+	},
+	{
+		"enemy_type": "Bee",
+		"quantity": 5,
+		"delay": 0.3
+	},
+	{
+		"enemy_type": "Small Blob",
+		"quantity": 50,
+		"delay": 0.2
+	},
+	],[     #### VAGUE 8 #####
+	{
+		"enemy_type": "Golem",
+		"quantity": 3,
+		"delay": 6
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 20,
+		"delay": 0.5
+	},
+	{
+		"enemy_type": "Wolf",
+		"quantity": 5,
+		"delay": 2
+	},
+	],[  #### VAGUE 9 #####
+	{
+		"enemy_type": "Small Blob",
+		"quantity": 50,
+		"delay": 0.3
+	},	
+	{
+		"enemy_type": "Bee",
+		"quantity": 5,
+		"delay": 0.2
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 50,
+		"delay": 0.3
+	},
+	{
+		"enemy_type": "Wolf",
+		"quantity": 10,
+		"delay": 0.2
+	}
+	],[  #### VAGUE 10 #####
+	{
+		"enemy_type": "Wolf",
+		"quantity": 30,
+		"delay": 0.2
+	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 1,
+		"delay": 10
+	},
+	{
+		"enemy_type": "Bee",
+		"quantity": 30,
+		"delay": 0.5
+	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 2,
+		"delay": 4
+	},
+	{
+		"enemy_type": "Goblin",
+		"quantity": 2,
+		"delay": 15
+	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 5,
+		"delay": 3
+	},
+	] 
 ]
 
 var enemy_data = {
 	"Goblin" : {
 		"hp": 30,
-		"speed": 75,
+		"speed": 50,
 		"damage": 10,
 		"gold": 10
 	},
@@ -141,28 +237,28 @@ var enemy_data = {
 		"gold": 10
 	},
 	"Small Blob" : {
-		"hp": 10,
-		"speed": 20,
+		"hp": 50,
+		"speed": 40,
 		"damage": 5,
 		"gold": 5
 	},
 	"Big Blob" : {
 		"hp": 10,
-		"speed": 100,
+		"speed": 75,
 		"damage": 5,
 		"gold": 5
 	},
 	"Bee" : {
 		"hp": 10,
-		"speed": 100,
+		"speed": 200,
 		"damage": 5,
 		"gold": 5
 	},
 	"Golem" : {
-		"hp": 300,
-		"speed": 20,
+		"hp": 3000,
+		"speed": 40,
 		"damage": 20,
-		"gold": 50
+		"gold": 200
 	}
 }
 
@@ -171,8 +267,8 @@ var enemy_data = {
 var tower_data = {
 	"Turret_Bow_1" : {
 		"price": 100,
-		"damage": 20,
-		"rof": 1,
+		"damage": 15,
+		"rof": 0.75,
 		"range": 350,
 		"fire_delay": 0.1,
 		"has_projectile": true,
@@ -180,7 +276,7 @@ var tower_data = {
 	"Turret_Bow_2" : {
 		"price": 100,
 		"damage": 20,
-		"rof": 1,
+		"rof": 0.65,
 		"range": 350,
 		"fire_delay": 0.1,
 		"has_projectile": true
@@ -188,7 +284,7 @@ var tower_data = {
 	"Turret_Bow_3" : {
 		"price": 100,
 		"damage": 20,
-		"rof": 1,
+		"rof": 0.5,
 		"range": 350,
 		"fire_delay": 0.1,
 		"has_projectile": true
@@ -203,8 +299,8 @@ var tower_data = {
 	},
 	"Turret_Mage_2" : {
 		"price": 100,
-		"damage": 40,
-		"rof": 2,
+		"damage": 100,
+		"rof": 3,
 		"range": 350,
 		"fire_delay": 0.1,
 		"has_projectile": false
@@ -212,7 +308,7 @@ var tower_data = {
 	"Turret_Mage_3" : {
 		"price": 100,
 		"damage": 40,
-		"rof": 2,
+		"rof": 3,
 		"range": 350,
 		"fire_delay": 0.1,
 		"has_projectile": false
