@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var hp_bar = get_node("HUD/InfoBar/HBoxContainer/HP bar")
-var hp_bar_tween = hp_bar.create_tween()
+@onready var hp_bar_tween = hp_bar.create_tween()
 
 
 func set_tower_preview(tower_type, mouse_position):
