@@ -73,6 +73,7 @@ func _on_animation_animation_finished():
 func reconfigure_path_node():
 	var path_array = generate_path()
 	var path = get_parent().curve
+	print(path)
 	
 	path.clear_points()
 	set_progress(0)
@@ -80,7 +81,7 @@ func reconfigure_path_node():
 		var tile_position = map_node.get_node("TowerExclusion").map_to_local(path_tile)
 		path.add_point(tile_position)
 	
-	path.set_point_position(0, global_position)
+	path.set_point_position(0, position)
 	
 func configure_path_node():
 	var path_array = generate_path()

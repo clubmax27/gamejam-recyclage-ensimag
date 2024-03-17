@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var money_value = get_node("HUD/InfoBar/HBoxContainer/Money value")
 
 func set_tower_preview(tower_type, mouse_position):
-	print("res://Scenes/Turret/" + tower_type + "/" + tower_type + "_1.tscn")
 	var drag_tower = load("res://Scenes/Turret/" + tower_type + "_1/" + tower_type + "_1.tscn").instantiate()  ## a modifier pour mettre le chemin
 
 	drag_tower.set_name("DragTower")

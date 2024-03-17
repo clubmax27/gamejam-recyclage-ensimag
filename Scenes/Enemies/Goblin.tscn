@@ -107,7 +107,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" type="Node"]
+[node name="Enemy" type="Node2D"]
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_7fulp")

@@ -182,7 +182,8 @@ func spawn_enemies(wave_data):
 		var enemies_to_spawn = enemy_data.quantity
 		while enemies_to_spawn > 0:
 			var new_enemy = load("res://Scenes/Enemies/" + enemy_data.enemy_type + ".tscn").instantiate()
-			map_node.get_node("Enemies").add_child(new_enemy, true)
+			new_enemy.get_node("EnemyPath").set_curve(Curve2D.new())
+			map_node.get_node("Enemies").add_child(new_enemy)
 			await get_tree().create_timer(enemy_data.delay).timeout
 			enemies_to_spawn -= 1
 		await get_tree().create_timer(1).timeout

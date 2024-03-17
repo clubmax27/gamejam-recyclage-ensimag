@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3qhycc078s83"]
+
+[sub_resource type="GDScript" id="GDScript_ts15m"]
+
+[node name="Dialogue" type="Node"]
+script = SubResource("GDScript_ts15m")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NextCharTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="NextCharTimer" to="." method="_on_next_char_timer_timeout"]
