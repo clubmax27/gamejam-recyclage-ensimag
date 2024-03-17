@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct72hqe116s7n"
+path="res://.godot/imported/A Hat in Time OST - Title Screen.mp3-cc8e0401046487285994da1c92bb5ea0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/A Hat in Time OST - Title Screen.mp3"
+dest_files=["res://.godot/imported/A Hat in Time OST - Title Screen.mp3-cc8e0401046487285994da1c92bb5ea0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

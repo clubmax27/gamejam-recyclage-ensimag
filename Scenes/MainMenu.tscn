@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://doemroqxw6boo"]
+[gd_scene load_steps=7 format=3 uid="uid://doemroqxw6boo"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu.gd" id="1_lxysf"]
 [ext_resource type="Texture2D" uid="uid://dac2b4im7gnb2" path="res://Assets/Main menu/ENSIMAG background.jpg" id="1_ww3wh"]
 [ext_resource type="Texture2D" uid="uid://cv4t6tjtpn7et" path="res://Assets/UI/PNG/blue_button00.png" id="2_u4w8e"]
 [ext_resource type="Texture2D" uid="uid://d0s4y5uxpn5o1" path="res://Assets/UI/PNG/blue_button05.png" id="3_la3h0"]
 [ext_resource type="FontFile" uid="uid://br8yliaheopkv" path="res://Scenes/button_font.tres" id="4_te37i"]
+[ext_resource type="AudioStream" uid="uid://ct72hqe116s7n" path="res://Assets/Music/A Hat in Time OST - Title Screen.mp3" id="6_awomm"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -65,31 +66,6 @@ theme_override_constants/shadow_outline_size = 5
 theme_override_fonts/font = ExtResource("4_te37i")
 theme_override_font_sizes/font_size = 32
 text = "Jouer"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Selection de niveau" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-texture_normal = ExtResource("2_u4w8e")
-texture_pressed = ExtResource("3_la3h0")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Selection de niveau"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("4_te37i")
-theme_override_font_sizes/font_size = 21
-text = "Selection de niveaux"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -173,6 +149,10 @@ C'est dans ce contexte que vous, en tant que commandant en chef de la défense d
 Prenez les rênes de la défense, menez vos troupes avec bravoure et montrez à Phelma que la force et la détermination d'Ensimag ne peuvent être ébranlées. La bataille pour la suprématie académique commence maintenant !
 "
 autowrap_mode = 2
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_awomm")
+volume_db = -10.0
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Info" to="." method="_on_info_pressed"]

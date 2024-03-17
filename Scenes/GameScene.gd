@@ -15,6 +15,9 @@ var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Play music
+	get_node("Music").play()
+	
 	GameData.player_gold = 500
 	get_node("UI").update_gold(0)
 	map_node = get_node("Level")  ## sélectionner la carte
