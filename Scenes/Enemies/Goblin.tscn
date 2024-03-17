@@ -70,6 +70,7 @@ script = ExtResource("1_qf1fl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/Goblin"]
 shape = SubResource("CapsuleShape2D_sy7hf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Goblin"]
+[node name="Animation" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Goblin"]
 sprite_frames = SubResource("SpriteFrames_oiiqw")
 frame_progress = 0.0297806
+flip_h = true

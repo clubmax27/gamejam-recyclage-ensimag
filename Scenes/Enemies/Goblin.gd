@@ -8,10 +8,11 @@ var initial_position = Vector2(80, 345)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("Goblin/Animation").play()
 	add_to_group("enemies_path")
 	set_position(initial_position)
 	set_loop(false)
-	map_node = get_tree().root.get_child(0).get_node("Level")
+	map_node = get_tree().root.get_child(1).get_node("Level")
 	current_tile = map_node.get_node("TowerExclusion").local_to_map(global_position)
 	
 	configure_path_node()

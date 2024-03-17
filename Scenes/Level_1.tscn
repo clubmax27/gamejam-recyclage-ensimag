@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vrwwiufn4b1k"]
+[gd_scene load_steps=10 format=3 uid="uid://dx7gs61tr5m8k"]
 
 [ext_resource type="Texture2D" uid="uid://d3rfhwtk785yn" path="res://Assets/Tileset/Tileset/PNGs/Grass Tileset.png" id="1_6rhtg"]
 [ext_resource type="Texture2D" uid="uid://bu7geiibu82s5" path="res://Assets/Tileset/Tileset/PNGs/Animated water tiles.png" id="2_87tt7"]
