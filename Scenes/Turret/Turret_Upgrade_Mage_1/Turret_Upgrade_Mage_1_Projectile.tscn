@@ -108,4 +108,4 @@ script = ExtResource("1_4m0kx")
 [node name="Sprite" type="AnimatedSprite2D" parent="ProjectilePathFollow/Projectile"]
 position = Vector2(20, 0)
 sprite_frames = SubResource("SpriteFrames_55b1s")
-frame_progress = 0.190451
+frame_progress = 0.714602

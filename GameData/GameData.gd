@@ -357,11 +357,11 @@ var tower_data = {
 		"has_projectile": true,
 	},
 		"Turret_Upgrade_Mage_1" : {
-		"price": 80,
+		"price": 60,
 		"damage": 200,
 		"rof": 5,
 		"range": 200,
 		"fire_delay": 0.1,
-		"has_projectile": false
+		"has_projectile": true
 	},
 }

@@ -39,13 +39,13 @@ region = Rect2(0, 81.3245, 64.4442, 110.675)
 atlas = ExtResource("6_gk101")
 region = Rect2(0, 91.801, 65.211, 100.199)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_poxs5"]
-atlas = ExtResource("9_s0cvx")
-region = Rect2(0, 21.0845, 65.784, 106.41)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66ap6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv6vk"]
 atlas = ExtResource("10_7h26s")
-region = Rect2(0, 23.1326, 64.771, 104.867)
+region = Rect2(63.7023, 13.3483, 64.1571, 114.652)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qagk4"]
+atlas = ExtResource("9_s0cvx")
+region = Rect2(0, 19.2333, 64.1606, 108.767)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ryyv"]
 atlas = ExtResource("13_58k2l")
@@ -159,29 +159,13 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_dl4ir")
 expand_mode = 4
 
-[node name="Turret_Upgrade_Mage" type="TextureButton" parent="UI/HUD/Build Box"]
+[node name="Turret_Upgrade_Arc" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture_normal = ExtResource("3_4rr63")
-stretch_mode = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Turret_Upgrade_Mage"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/Build Box/Turret_Upgrade_Mage/MarginContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_poxs5")
-expand_mode = 4
-
-[node name="Turret_Upgrade_Arc" type="TextureButton" parent="UI/HUD/Build Box"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-texture_normal = ExtResource("3_4rr63")
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_rxwos")
+texture_pressed = ExtResource("3_4rr63")
+stretch_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Turret_Upgrade_Arc"]
 layout_mode = 1
@@ -190,10 +174,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 18
 
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/Build Box/Turret_Upgrade_Arc/MarginContainer"]
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/Turret_Upgrade_Arc/MarginContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_66ap6")
+texture = SubResource("AtlasTexture_jv6vk")
+expand_mode = 4
+
+[node name="Turret_Upgrade_Mage" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_rxwos")
+texture_pressed = ExtResource("3_4rr63")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/Build Box/Turret_Upgrade_Mage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 18
+
+[node name="Icon" type="TextureRect" parent="UI/HUD/Build Box/Turret_Upgrade_Mage/MarginContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qagk4")
 expand_mode = 4
 
 [node name="Game controller" type="HBoxContainer" parent="UI/HUD"]
@@ -218,7 +231,6 @@ texture_normal = ExtResource("11_tinvq")
 texture_pressed = ExtResource("12_eu0gy")
 
 [node name="InfoBar" type="ColorRect" parent="UI/HUD"]
-visible = false
 self_modulate = Color(0, 0, 0, 0.470588)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -262,7 +274,6 @@ texture = ExtResource("17_oobsl")
 expand_mode = 3
 
 [node name="Dialogue" type="ColorRect" parent="UI"]
-visible = false
 self_modulate = Color(0, 0, 0, 0.470588)
 custom_minimum_size = Vector2(0, 50)
 anchors_preset = 15
