@@ -6,6 +6,36 @@ var player_gold = 500
 var wave_data = [   ##### VAGUE 1  #####
 	[{
 		"enemy_type": "Goblin",
+		"quantity": 1,
+		"delay": 0.3
+	},
+	{
+		"enemy_type": "Wolf",
+		"quantity": 1,
+		"delay": 0.7
+	},
+	{
+		"enemy_type": "Small Blob",
+		"quantity": 1,
+		"delay": 1
+	},
+	{
+		"enemy_type": "Big Blob",
+		"quantity": 1,
+		"delay": 1
+	},
+	{
+		"enemy_type": "Bee",
+		"quantity": 1,
+		"delay": 1
+	},
+	{
+		"enemy_type": "Golem",
+		"quantity": 1,
+		"delay": 1
+	}],
+	[{
+		"enemy_type": "Goblin",
 		"quantity": 2,
 		"delay": 0.3
 	},
@@ -110,7 +140,7 @@ var enemy_data = {
 		"damage": 5,
 		"gold": 10
 	},
-	"Blob" : {
+	"Small Blob" : {
 		"hp": 10,
 		"speed": 20,
 		"damage": 5,
@@ -122,16 +152,16 @@ var enemy_data = {
 		"damage": 5,
 		"gold": 5
 	},
+	"Bee" : {
+		"hp": 10,
+		"speed": 100,
+		"damage": 5,
+		"gold": 5
+	},
 	"Golem" : {
 		"hp": 300,
 		"speed": 20,
 		"damage": 20,
-		"gold": 50
-	},
-	"phelma" : {
-		"hp": 100,
-		"speed": 40,
-		"damage": 15,
 		"gold": 50
 	}
 }
