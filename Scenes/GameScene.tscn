@@ -270,6 +270,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="Message" type="Label" parent="UI/Background/Dialogue/TextBackground/MarginContainer"]
 layout_mode = 2
+autowrap_mode = 2
 
 [node name="NextCharTimer" type="Timer" parent="UI/Background/Dialogue/TextBackground/MarginContainer"]
 wait_time = 0.1
