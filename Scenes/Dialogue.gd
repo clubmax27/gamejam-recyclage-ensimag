@@ -22,6 +22,7 @@ var display = ""
 var current_char = 0
 
 var message_still_writing = true
+var is_input_held = false
 
 func _ready():
 	start_dialogue()
@@ -31,7 +32,6 @@ func start_dialogue():
 	display = ""
 	current_char = 0
 	
-	var character = messages[current_message]["character"]
 	$Dialogue/TextBackground/MarginContainer/NextCharTimer.set_wait_time(typing_speed)
 	$Dialogue/TextBackground/MarginContainer/NextCharTimer.start()
 		
@@ -45,12 +45,18 @@ func start_dialogue():
 func stop_dialogue():
 	set_visible(false)
 
-func _input(ev):
-	if Input.is_key_pressed(KEY_ENTER) or (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+func _input(_ev):
+	if Input.is_action_just_released("ui_accept"):
+		is_input_held = true
 		if message_still_writing:
+			message_still_writing = false
 			finish_message()
+			print("skipping")
 		else:
 			next_message()
+			print("next message")
+	
+	
 		
 func _on_next_char_timer_timeout():
 	if (current_char < len(messages[current_message]["message"])):
@@ -66,7 +72,6 @@ func _on_next_char_timer_timeout():
 		$Dialogue/TextBackground/MarginContainer/NextCharTimer.stop()
 
 func finish_message():
-	message_still_writing = false
 	$Dialogue/TextBackground/MarginContainer/NextCharTimer.stop()
 	$Dialogue/TextBackground/MarginContainer/Message.text = messages[current_message]["message"]
 
