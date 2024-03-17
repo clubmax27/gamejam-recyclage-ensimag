@@ -179,7 +179,7 @@ func start_next_wave():
 	
 		
 	wave_finished_spawning = false
-	print("Starting next wave")
+	print("Starting next wave", current_wave)
 	current_wave += 1
 	
 	var wave_data = retrieve_wave_data(current_wave)
