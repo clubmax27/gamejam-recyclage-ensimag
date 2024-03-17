@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://c7c10jj2efynm"]
 
-[ext_resource type="PackedScene" uid="uid://dx7gs61tr5m8k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
+[ext_resource type="PackedScene" uid="uid://vrwwiufn4b1k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
 [ext_resource type="Texture2D" uid="uid://dlp82jtfo3ipm" path="res://Assets/UI/PNG/blue_button07.png" id="2_rxwos"]
 [ext_resource type="Texture2D" uid="uid://dc5pjyt8d43em" path="res://Assets/UI/PNG/blue_button12.png" id="3_4rr63"]
@@ -172,7 +172,7 @@ grow_vertical = 2
 [node name="Money value" type="Label" parent="UI/HUD/InfoBar/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "9999"
+text = "500"
 
 [node name="Money" type="TextureRect" parent="UI/HUD/InfoBar/HBoxContainer"]
 layout_mode = 2

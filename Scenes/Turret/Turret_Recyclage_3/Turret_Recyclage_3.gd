@@ -1,13 +1,15 @@
-extends Node2D
-
-@onready var bow = get_node("Weapon")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	add_to_group("Towers")
-	pass # Replace with function body.
-
+extends "res://Scenes/Turret/Turrets.gd"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	bow.play()
+func _physics_process(_delta):
+	if enemy_array.is_empty():
+		return
+	
+	if not built:
+		return
+		
+	for enemy in enemy_array:
+		if enemy.dead and not enemy.looted:
+			enemy.looted = true
+			get_node("UI").update_gold(GameData.enemy_data[enemy.type].gold)
+			print("Gained ", GameData.enemy_data[enemy.type].gold, " gold")

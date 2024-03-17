@@ -11,5 +11,5 @@ func _physics_process(_delta):
 	for enemy in enemy_array:
 		if enemy.dead and not enemy.looted:
 			enemy.looted = true
-			#Coins += enemy
+			get_tree().root.get_children()[1].get_children()[1].update_gold(GameData.enemy_data[enemy.type].gold)
 			print("Gained ", GameData.enemy_data[enemy.type].gold, " gold")

@@ -1,7 +1,7 @@
 extends Node
 
 var player_hp = 100
-var player_gold = 2000
+var player_gold = 500
 
 var wave_data = [
 	[{
