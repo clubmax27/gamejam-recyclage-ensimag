@@ -100,6 +100,9 @@ func is_valid_position(current_tile) -> bool:
 	# Check if node is a TowerExclusion Tile
 	if not map_node.get_node("TowerExclusion").get_cell_source_id(0, current_tile) == -1:
 		return false
+		
+	if current_tile == Vector2i(1 , 5) or current_tile == Vector2i(17 , 5):
+		return false
 	
 	var astargrid = AStarGrid2D.new()
 	astargrid.size = Vector2i(18,10)
@@ -181,7 +184,7 @@ func spawn_enemies(wave_data):
 	for enemy_data in wave_data:
 		var enemies_to_spawn = enemy_data.quantity
 		while enemies_to_spawn > 0:
-			var new_enemy = load("res://Scenes/Enemies/" + enemy_data.enemy_type + ".tscn").instantiate()
+			var new_enemy = load("res://Scenes/Enemies/" + enemy_data.enemy_type + "/" + enemy_data.enemy_type + ".tscn").instantiate()
 			new_enemy.get_node("EnemyPath").set_curve(Curve2D.new())
 			map_node.get_node("Enemies").add_child(new_enemy)
 			await get_tree().create_timer(enemy_data.delay).timeout

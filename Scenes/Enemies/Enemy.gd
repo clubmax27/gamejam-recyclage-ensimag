@@ -3,9 +3,9 @@ extends PathFollow2D
 var map_node
 var current_tile
 
-var type = "Goblin"
-var speed = GameData.enemy_data[type].speed
-var hp = GameData.enemy_data[type].hp
+@onready var type = self.get_child(0).get_name()
+@onready var speed = GameData.enemy_data[type].speed
+@onready var hp = GameData.enemy_data[type].hp
 
 var initial_position = Vector2(80, 345)
 var dead = false
@@ -13,7 +13,7 @@ var looted = false
 var did_damage = false
 
 @onready var health_bar = get_node("HealthBar")
-@onready var animation = get_node("Goblin/Animation")
+@onready var animation = get_node(type + "/Animation")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

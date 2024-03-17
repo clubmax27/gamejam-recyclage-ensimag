@@ -10,7 +10,7 @@ var wave_data = [
 		"delay": 0.3
 	},
 	{
-		"enemy_type": "Goblin",
+		"enemy_type": "Wolf",
 		"quantity": 3,
 		"delay": 0.7
 	}],
@@ -23,6 +23,13 @@ var wave_data = [
 
 var enemy_data = {
 	"Goblin" : {
+		"hp": 5,
+		"speed": 150,
+		"damage": 10,
+		"gold": 10
+	},
+	
+	"Wolf" : {
 		"hp": 5,
 		"speed": 150,
 		"damage": 10,

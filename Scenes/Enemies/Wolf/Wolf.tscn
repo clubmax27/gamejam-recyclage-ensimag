@@ -1,0 +1,142 @@
+[gd_scene load_steps=21 format=3 uid="uid://by0tx7a11lgue"]
+
+[ext_resource type="Texture2D" uid="uid://db3o1f72pu0eq" path="res://Assets/Enemies/Basic Enemies/wolf/S_Death.png" id="1_cxbb1"]
+[ext_resource type="Texture2D" uid="uid://bgytrghjh1302" path="res://Assets/Enemies/Basic Enemies/wolf/S_Walk.png" id="4_ka54m"]
+[ext_resource type="Texture2D" uid="uid://c68vupcw5adgu" path="res://Assets/UI/PNG/barHorizontal_red_mid.png" id="5_npl3m"]
+[ext_resource type="Texture2D" uid="uid://c1ghqcd47alqe" path="res://Assets/UI/PNG/barHorizontal_green_mid.png" id="6_jkuuf"]
+
+[sub_resource type="Curve2D" id="Curve2D_fld07"]
+
+[sub_resource type="GDScript" id="GDScript_62607"]
+script/source = "extends \"res://Scenes/Enemies/Enemy.gd\"
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x5cx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hal4g"]
+atlas = ExtResource("1_cxbb1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ef0"]
+atlas = ExtResource("1_cxbb1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jaxrb"]
+atlas = ExtResource("1_cxbb1")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pvwi"]
+atlas = ExtResource("1_cxbb1")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwlce"]
+atlas = ExtResource("1_cxbb1")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14wrf"]
+atlas = ExtResource("1_cxbb1")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aou12"]
+atlas = ExtResource("4_ka54m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4mfc"]
+atlas = ExtResource("4_ka54m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vubxt"]
+atlas = ExtResource("4_ka54m")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_touvg"]
+atlas = ExtResource("4_ka54m")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xep7"]
+atlas = ExtResource("4_ka54m")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm8pg"]
+atlas = ExtResource("4_ka54m")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sjy5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hal4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ef0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jaxrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pvwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwlce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14wrf")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aou12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4mfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vubxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_touvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xep7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm8pg")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fld07")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath" groups=["enemies_path"]]
+script = SubResource("GDScript_62607")
+
+[node name="Wolf" type="CharacterBody2D" parent="EnemyPath/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/Wolf"]
+shape = SubResource("CapsuleShape2D_8x5cx")
+
+[node name="Animation" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Wolf"]
+sprite_frames = SubResource("SpriteFrames_4sjy5")
+animation = &"Walk"
+flip_h = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="EnemyPath/PathFollow2D"]
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.0
+offset_bottom = -13.0
+value = 30.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_npl3m")
+texture_progress = ExtResource("6_jkuuf")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="EnemyPath/PathFollow2D/Wolf/Animation" to="EnemyPath/PathFollow2D" method="_on_animation_animation_finished"]

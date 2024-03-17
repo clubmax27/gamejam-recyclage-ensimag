@@ -1,0 +1,139 @@
+[gd_scene load_steps=21 format=3 uid="uid://bkfcwvvr3i4fj"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy.gd" id="1_fkxc3"]
+[ext_resource type="Texture2D" uid="uid://mfe08u0ess5c" path="res://Assets/Enemies/Basic Enemies/blob/S_Death2.png" id="2_s0gf8"]
+[ext_resource type="Texture2D" uid="uid://dmtcn43v8wc0k" path="res://Assets/Enemies/Basic Enemies/blob/S_Walk2.png" id="3_w1u78"]
+[ext_resource type="Texture2D" uid="uid://c68vupcw5adgu" path="res://Assets/UI/PNG/barHorizontal_red_mid.png" id="4_b5pp1"]
+[ext_resource type="Texture2D" uid="uid://c1ghqcd47alqe" path="res://Assets/UI/PNG/barHorizontal_green_mid.png" id="5_ub066"]
+
+[sub_resource type="Curve2D" id="Curve2D_tyo84"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xqlhv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3jr3"]
+atlas = ExtResource("2_s0gf8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guea2"]
+atlas = ExtResource("2_s0gf8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f35fg"]
+atlas = ExtResource("2_s0gf8")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eplpv"]
+atlas = ExtResource("2_s0gf8")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv5ua"]
+atlas = ExtResource("2_s0gf8")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3sme"]
+atlas = ExtResource("2_s0gf8")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4cf"]
+atlas = ExtResource("3_w1u78")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tahic"]
+atlas = ExtResource("3_w1u78")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tffv2"]
+atlas = ExtResource("3_w1u78")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq215"]
+atlas = ExtResource("3_w1u78")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk6sg"]
+atlas = ExtResource("3_w1u78")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btsj6"]
+atlas = ExtResource("3_w1u78")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qjr8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3jr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guea2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f35fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eplpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv5ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3sme")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp4cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tahic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tffv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq215")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk6sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btsj6")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tyo84")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath" groups=["enemies_path"]]
+script = ExtResource("1_fkxc3")
+
+[node name="Small Blob" type="CharacterBody2D" parent="EnemyPath/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/Small Blob"]
+shape = SubResource("CapsuleShape2D_xqlhv")
+
+[node name="Animation" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Small Blob"]
+sprite_frames = SubResource("SpriteFrames_qjr8w")
+animation = &"Walk"
+flip_h = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="EnemyPath/PathFollow2D"]
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.0
+offset_bottom = -13.0
+value = 30.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_b5pp1")
+texture_progress = ExtResource("5_ub066")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="EnemyPath/PathFollow2D/Small Blob/Animation" to="EnemyPath/PathFollow2D" method="_on_animation_animation_finished"]
