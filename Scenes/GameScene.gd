@@ -14,7 +14,7 @@ func _ready():
 	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
 		button.pressed.connect(initiate_build_mode.bind(button.get_name()))
 	
-	start_next_wave()
+	#start_next_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
