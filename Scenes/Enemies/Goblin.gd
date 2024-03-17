@@ -4,10 +4,19 @@ var map_node
 var current_tile
 
 var speed = 150
+var hp = 50
 var initial_position = Vector2(80, 345)
+
+@onready var health_bar = get_node("HealthBar")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Configuration of health bar
+	health_bar.max_value = hp
+	health_bar.value = hp
+	health_bar.set_as_top_level(true)
+	
+	
 	get_node("Goblin/Animation").play()
 	add_to_group("enemies_path")
 	set_position(initial_position)
@@ -24,7 +33,27 @@ func _physics_process(delta):
 
 func move(delta):
 	set_progress(progress + speed * delta)
+	health_bar.set_position(position - Vector2(10, 19))
 	
+	
+	
+	
+func on_hit(damage):
+	hp -= damage
+	health_bar.value = hp
+	if hp <= 0:
+		on_destroy()
+	
+func on_destroy():
+	self.queue_free()
+	
+	
+	
+	
+	
+	
+	
+# Pathfinding functions
 func reconfigure_path_node():
 	var path_array = generate_path()
 	var path = get_parent().curve

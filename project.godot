@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TurretData="*res://GameData/TurretData.gd"
+GameData="*res://GameData/GameData.gd"
 
 [display]
 
