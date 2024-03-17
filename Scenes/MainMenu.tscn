@@ -162,7 +162,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit"
+text = "Dans la tranquille ville universitaire de Grenoble, deux écoles prestigieuses, Phelma et Ensimag, coexistent depuis des décennies. Chacune d'entre elles est renommée pour son excellence dans les domaines de l'ingénierie et des sciences appliquées. Cependant, une rivalité féroce couve entre elles, alimentée par des compétitions sportives, académiques et sociales.
+
+L'année dernière, lors des Olympiades annuelles, l'équipe de Phelma a été défaite par Ensimag, déclenchant une humiliation sans précédent. Depuis lors, le ressentiment a monté chez les étudiants de Phelma, qui ne supportent plus les railleries incessantes de leurs rivaux.
+
+Dans un acte de vengeance, Phelma a lancé une attaque surprise contre Ensimag, déterminée à prouver sa supériorité et à remettre en question le statut de son adversaire. Les étudiants d'Ensimag, pris au dépourvu, doivent maintenant défendre leur école bien-aimée contre l'assaut implacable de leurs adversaires.
+
+C'est dans ce contexte que vous, en tant que commandant en chef de la défense d'Ensimag, êtes appelé à l'action. Avec vos compétences stratégiques et votre ingéniosité, vous devez construire des tours de défense, former des troupes et repousser les assaillants de Phelma pour protéger l'honneur et la réputation de votre école.
+
+Prenez les rênes de la défense, menez vos troupes avec bravoure et montrez à Phelma que la force et la détermination d'Ensimag ne peuvent être ébranlées. La bataille pour la suprématie académique commence maintenant !
+"
 autowrap_mode = 2
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
