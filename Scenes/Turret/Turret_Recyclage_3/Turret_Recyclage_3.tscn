@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bdkb4jn4ibwr6"]
 
 [ext_resource type="Texture2D" uid="uid://bb4knkmm6d5fp" path="res://Assets/Towers/Towers bases/PNGs/Tower 08.png" id="1_an8eu"]
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Recyclage_3.gd" id="1_o8vrj"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Recyclage_3/Turret_Recyclage_3.gd" id="1_o8vrj"]
 [ext_resource type="Texture2D" uid="uid://f2ejb8r2crd5" path="res://Assets/Towers/Towers Weapons/Tower 08/Spritesheets/Tower 08 - Level 03 - Weapon.png" id="2_ndd8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngn5d"]

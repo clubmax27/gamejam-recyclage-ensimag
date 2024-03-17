@@ -28,10 +28,7 @@ func _unhandled_input(event):
 		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				print("Left button was clicked at ", event.position)
-			else:
-				print("Left button was released")	
+			if not event.pressed:
 				verify_and_build()
 				cancel_build_mode()
 		if event.button_index == MOUSE_BUTTON_RIGHT:
@@ -68,9 +65,10 @@ func cancel_build_mode():
 func verify_and_build():
 	if build_valid:
 		## on peut verifier les conditions de ressources ici
-		print(build_type)
-		var new_tower = load("res://Scenes/Turret/Turret_" + build_type + "_1.tscn").instantiate()  ## modifier avec le chemin d'acces de la tour
+		var new_tower = load("res://Scenes/Turret/" + build_type + "_1/" + build_type + "_1.tscn").instantiate()  ## modifier avec le chemin d'acces de la tour
 		new_tower.position = build_location
+		new_tower.built = true
+		new_tower.type = build_type + "_1"
 		map_node.get_node("Towers").add_child(new_tower, true)
 		get_tree().call_group("enemies_path", "reconfigure_path_node")
 		

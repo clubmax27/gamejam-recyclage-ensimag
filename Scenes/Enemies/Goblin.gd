@@ -4,14 +4,29 @@ var map_node
 var current_tile
 
 var speed = 150
+var hp = 50
+var type = "Goblin"
+
 var initial_position = Vector2(80, 345)
+var dead = false
+var looted = false
+
+@onready var health_bar = get_node("HealthBar")
+@onready var animation = get_node("Goblin/Animation")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Configuration of health bar
+	health_bar.max_value = hp
+	health_bar.value = hp
+	health_bar.set_as_top_level(true)
+	
+	
+	animation.play("Walk")
 	add_to_group("enemies_path")
 	set_position(initial_position)
 	set_loop(false)
-	map_node = get_tree().root.get_child(0).get_node("Level")
+	map_node = get_tree().root.get_child(1).get_node("Level")
 	current_tile = map_node.get_node("TowerExclusion").local_to_map(global_position)
 	
 	configure_path_node()
@@ -19,11 +34,37 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	move(delta)
+	if not dead:
+		move(delta)
 
 func move(delta):
 	set_progress(progress + speed * delta)
+	health_bar.set_position(position - Vector2(10, 19))
 	
+	
+	
+	
+func on_hit(damage):
+	hp -= damage
+	health_bar.value = hp
+	if hp <= 0:
+		on_destroy()
+	
+func on_destroy():
+	dead = true
+	animation.play("Death")
+	
+	
+	
+func _on_animation_animation_finished():
+	if dead:
+		self.queue_free()
+
+	
+	
+	
+	
+# Pathfinding functions
 func reconfigure_path_node():
 	var path_array = generate_path()
 	var path = get_parent().curve
@@ -71,3 +112,4 @@ func generate_path():
 	astargrid.set_point_solid(Vector2i(17 , 5), false)
 	
 	return astargrid.get_id_path(map_node.get_node("TowerExclusion").local_to_map(global_position), Vector2i(17 , 5))
+
