@@ -62,6 +62,7 @@ animations = [{
 radius = 20.0
 
 [node name="Turret_Bow_1" type="Node2D"]
+z_index = 1
 script = ExtResource("1_wuvfp")
 
 [node name="Base" type="Sprite2D" parent="."]
