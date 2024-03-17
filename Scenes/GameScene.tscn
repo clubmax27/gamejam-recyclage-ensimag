@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=30 format=3 uid="uid://c7c10jj2efynm"]
 
 [ext_resource type="PackedScene" uid="uid://vrwwiufn4b1k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://b0r6lcnwotln" path="res://Assets/UI/PNG/red_button00.png" id="19_s2lis"]
 [ext_resource type="Texture2D" uid="uid://c7j8hcxy31kly" path="res://Assets/bk-removebg-preview.png" id="20_308m3"]
 [ext_resource type="Texture2D" uid="uid://bs5p0smshnjy2" path="res://Assets/jacques-removebg-preview.png" id="21_sa318"]
+[ext_resource type="Texture2D" uid="uid://drfttrruvgaqp" path="res://Assets/2024-03-17_17_58_51-pixel_art_win_loose_asset___Recherche_Google___Mozilla_Firefox-removebg-preview.png" id="22_uydb7"]
+[ext_resource type="Texture2D" uid="uid://c56780fup48lm" path="res://Assets/2024-03-17_17_56_00-win-lose-flag-pixel-art-style_475147-1404.jpg__-_Photos-removebg-preview.png" id="23_ik5ws"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kqk8"]
 atlas = ExtResource("4_308g5")
@@ -37,6 +39,14 @@ region = Rect2(0, 91.801, 65.211, 100.199)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ryyv"]
 atlas = ExtResource("13_58k2l")
 region = Rect2(36.8265, 221.18, 213.413, 225.967)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pdgi"]
+atlas = ExtResource("22_uydb7")
+region = Rect2(3.5, -3, 546, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wup42"]
+atlas = ExtResource("23_ik5ws")
+region = Rect2(-77.5, -34, 590, 315)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_rltjy")
@@ -274,6 +284,48 @@ autowrap_mode = 2
 
 [node name="NextCharTimer" type="Timer" parent="UI/Dialogue/Control/TextBackground/MarginContainer"]
 wait_time = 0.1
+
+[node name="Lose" type="ColorRect" parent="UI"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.470588)
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Lose"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 112.0
+offset_right = 970.0
+offset_bottom = 536.0
+texture = SubResource("AtlasTexture_1pdgi")
+
+[node name="Win" type="ColorRect" parent="UI"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.470588)
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Win"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 80.0
+offset_right = 969.0
+offset_bottom = 535.0
+texture = SubResource("AtlasTexture_wup42")
 
 [connection signal="pressed" from="UI/HUD/Game controller/PausePlay" to="UI" method="_on_pause_play_pressed"]
 [connection signal="pressed" from="UI/HUD/Game controller/SpeedUp" to="UI" method="_on_speed_up_pressed"]

@@ -56,6 +56,7 @@ func start_dialogue():
 	display = ""
 	current_char = 0
 	
+	print(get_name())
 	$Control/TextBackground/MarginContainer/NextCharTimer.set_wait_time(typing_speed)
 	$Control/TextBackground/MarginContainer/NextCharTimer.start()
 		

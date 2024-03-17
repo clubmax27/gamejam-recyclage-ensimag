@@ -29,10 +29,16 @@ func _process(_delta):
 	
 	enemies_in_wave = get_node("Level").get_node("Enemies").get_child_count()
 	
+	if game_over:
+		return
+	
 	# If this is the last wave and it's finished
 	if current_wave == max_wave_number and wave_finished_spawning and enemies_in_wave == 0:
 		print("You win !")
+		get_node("UI").get_node("Win").set_visible(true)
 		game_won = true
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 		return
 		
 	if wave_finished_spawning and enemies_in_wave == 0:
@@ -143,7 +149,11 @@ func on_base_damage(damage):
 	base_health -= damage
 	if base_health <= 0:
 		get_node("UI").update_health_bar(base_health, base_health)
+		get_node("UI").get_node("Lose").set_visible(true)
+		game_over = true
 		emit_signal("game_finished", false)
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	else:
 		get_node("UI").update_health_bar(base_health, damage)
 		
