@@ -90,6 +90,7 @@ animations = [{
 radius = 20.0
 
 [node name="TurretRecyclage1" type="Node2D"]
+z_index = 1
 script = ExtResource("1_4d2xq")
 
 [node name="Base" type="Sprite2D" parent="."]

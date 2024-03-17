@@ -223,6 +223,7 @@ animations = [{
 radius = 20.0
 
 [node name="Turret_Upgrade_Mage_1" type="Node2D"]
+z_index = 1
 script = ExtResource("1_j1emm")
 
 [node name="Base" type="Sprite2D" parent="."]

@@ -62,6 +62,7 @@ animations = [{
 radius = 20.0
 
 [node name="Turret_Upgrade_Arc_1" type="Node2D"]
+z_index = 1
 script = ExtResource("1_n7inv")
 
 [node name="Base" type="Sprite2D" parent="."]

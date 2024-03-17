@@ -35,9 +35,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if progress_ratio >= 1.0 && not did_damage:
+	if progress_ratio >= 0.99 && not did_damage:
 		did_damage = true
 		get_tree().root.get_child(1).on_base_damage(GameData.enemy_data[type].damage)
+		looted = true
 		on_destroy()
 	if not dead:
 		move(delta)
