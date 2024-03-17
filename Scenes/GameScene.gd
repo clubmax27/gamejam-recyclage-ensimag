@@ -7,20 +7,34 @@ var build_valid = false
 var build_location
 var build_type
 
+var wave_finished_spawning = false
+var enemies_in_wave
+var game_won = false
+var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("Level")  ## sélectionner la carte
 	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
 		button.pressed.connect(initiate_build_mode.bind(button.get_name()))
-	
-	#start_next_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if build_mode:
 		update_tower_preview()
+	
+	enemies_in_wave = get_node("Level").get_node("Enemies").get_child_count()
+	
+	# If this is the last wave and it's finished
+	if current_wave == max_wave_number and wave_finished_spawning and enemies_in_wave == 0:
+		print("You win !")
+		game_won = true
+		return
+		
+	if wave_finished_spawning and enemies_in_wave == 0:
+		await get_tree().create_timer(5).timeout
+		start_next_wave()
 
 func _unhandled_input(event):
 	if not build_mode:
@@ -119,22 +133,43 @@ func is_valid_position(current_tile) -> bool:
 
 ## Wave functions
 var current_wave = 0
-var enemies_in_wave = 0
+var max_wave_number = GameData.wave_data.size()
 
 func start_next_wave():
-	var wave_data = retrieve_wave_data()
+	# If game is over
+	if game_won:
+		return
+	
+	# If there are still enemies on the map
+	if enemies_in_wave > 0:
+		return
+
+	# Semaphore	
+	if not wave_finished_spawning:
+		return
+	
+		
+	wave_finished_spawning = false
+	print("Starting next wave")
+	current_wave += 1
+	
+	var wave_data = retrieve_wave_data(current_wave)
 	await get_tree().create_timer(0.2).timeout
 	spawn_enemies(wave_data)
 	
-func retrieve_wave_data():
-	var wave_data = [["Goblin", 0.7]]
-	current_wave += 1
-	enemies_in_wave = wave_data.size()
+func retrieve_wave_data(wave_index):
+	var wave_data = GameData.wave_data[wave_index - 1]
 	return wave_data
 
 func spawn_enemies(wave_data):
 	for enemy_data in wave_data:
-		var new_enemy = load("res://Scenes/Enemies/" + enemy_data[0] + ".tscn").instantiate()
-		map_node.get_node("Enemies").add_child(new_enemy, true)
-		await get_tree().create_timer(enemy_data[1]).timeout
+		var enemies_to_spawn = enemy_data.quantity
+		while enemies_to_spawn > 0:
+			var new_enemy = load("res://Scenes/Enemies/" + enemy_data.enemy_type + ".tscn").instantiate()
+			map_node.get_node("Enemies").add_child(new_enemy, true)
+			await get_tree().create_timer(enemy_data.delay).timeout
+			enemies_to_spawn -= 1
+		await get_tree().create_timer(1).timeout
+	
+	wave_finished_spawning = true
 		

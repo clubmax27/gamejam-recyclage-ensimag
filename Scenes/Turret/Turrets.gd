@@ -18,7 +18,7 @@ func _physics_process(_delta):
 	if not enemy_array.is_empty() and built:
 		select_enemy()
 		turn()
-		if ready_to_fire and not enemy.dead:
+		if enemy != null and ready_to_fire and not enemy.dead:
 			fire()
 	else:
 		enemy = null
@@ -26,7 +26,7 @@ func _physics_process(_delta):
 func select_enemy():
 	var enemy_progress_array = []
 	for current_enemy in enemy_array:
-		if not current_enemy.dead:
+		if current_enemy != null and not current_enemy.dead:
 			enemy_progress_array.append(current_enemy.progress) ## Progress is how may pixels enemy has travelled
 	var max_offset = enemy_progress_array.max()
 	var enemy_index = enemy_progress_array.find(max_offset)
@@ -49,8 +49,9 @@ func fire():
 	get_node("Weapon").play()
 	await get_tree().create_timer(GameData.tower_data[type]["fire_delay"], false).timeout
 	
-	enemy.on_hit(GameData.tower_data[type]["damage"])
-	await get_tree().create_timer(GameData.tower_data[type]["rof"], false).timeout
+	if enemy != null:
+		enemy.on_hit(GameData.tower_data[type]["damage"])
+		await get_tree().create_timer(GameData.tower_data[type]["rof"], false).timeout
 	
 	ready_to_fire = true
 
