@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjilmenxr4w2m"
-path="res://.godot/imported/play-button-6-32.png-70fb6ea7a53ed8e08d8d92ba22004ac3.ctex"
+uid="uid://doks1igpngv4c"
+path="res://.godot/imported/ios-fastforward-outline-64.png-7f8b543cd8280dcb93c9b86b400e0b00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/play-button-6-32.png"
-dest_files=["res://.godot/imported/play-button-6-32.png-70fb6ea7a53ed8e08d8d92ba22004ac3.ctex"]
+source_file="res://Assets/Image UI/ios-fastforward-outline-64.png"
+dest_files=["res://.godot/imported/ios-fastforward-outline-64.png-7f8b543cd8280dcb93c9b86b400e0b00.ctex"]
 
 [params]
 

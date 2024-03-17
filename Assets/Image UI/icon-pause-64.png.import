@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do2g5p7x610xg"
-path="res://.godot/imported/ios-fastforward-outline-64.png-5302addd73e0cce95baadc85524bae88.ctex"
+uid="uid://5tml1arxupjx"
+path="res://.godot/imported/icon-pause-64.png-c76b82a771060744755fc50719b0f19d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ios-fastforward-outline-64.png"
-dest_files=["res://.godot/imported/ios-fastforward-outline-64.png-5302addd73e0cce95baadc85524bae88.ctex"]
+source_file="res://Assets/Image UI/icon-pause-64.png"
+dest_files=["res://.godot/imported/icon-pause-64.png-c76b82a771060744755fc50719b0f19d.ctex"]
 
 [params]
 
