@@ -5,9 +5,11 @@ var current_tile
 
 var speed = 150
 var hp = 50
+var type = "Goblin"
 
 var initial_position = Vector2(80, 345)
 var dead = false
+var looted = false
 
 @onready var health_bar = get_node("HealthBar")
 @onready var animation = get_node("Goblin/Animation")

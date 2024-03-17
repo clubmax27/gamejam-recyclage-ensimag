@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bel1jao082s3l"]
 
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Mage_3.gd" id="1_agqjl"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Mage_3/Turret_Mage_3.gd" id="1_agqjl"]
 [ext_resource type="Texture2D" uid="uid://74l78y3noixb" path="res://Assets/Towers/Towers bases/PNGs/Tower 02.png" id="1_lsm2r"]
 [ext_resource type="Texture2D" uid="uid://du35p0xndpjcw" path="res://Assets/Towers/Towers Weapons/Tower 02/Spritesheets/Tower 02 - Level 03 - Weapon.png" id="2_bq4ee"]
 

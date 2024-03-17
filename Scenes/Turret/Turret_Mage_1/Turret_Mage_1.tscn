@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgaurr4csuwa4"]
+[gd_scene load_steps=23 format=3 uid="uid://cgaurr4csuwa4"]
 
 [ext_resource type="Texture2D" uid="uid://74l78y3noixb" path="res://Assets/Towers/Towers bases/PNGs/Tower 02.png" id="1_7dgju"]
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Mage_1.gd" id="1_560j8"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Mage_1/Turret_Mage_1.gd" id="1_560j8"]
 [ext_resource type="Texture2D" uid="uid://ce7sdy84kcpsm" path="res://Assets/Towers/Towers Weapons/Tower 02/Spritesheets/Tower 02 - Level 01 - Weapon.png" id="2_ri2wm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2pwj"]
@@ -138,10 +138,13 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v2tx7")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 15.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8hmt"]
+radius = 20.0
 
 [node name="Turret_Mage_1" type="Node2D"]
 script = ExtResource("1_560j8")
@@ -153,3 +156,11 @@ texture = SubResource("AtlasTexture_i2pwj")
 position = Vector2(-1, -19)
 sprite_frames = SubResource("SpriteFrames_v3n8n")
 frame_progress = 0.00513605
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_q8hmt")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

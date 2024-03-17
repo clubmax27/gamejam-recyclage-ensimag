@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7xut3wnmooyk"]
+[gd_scene load_steps=17 format=3 uid="uid://c7xut3wnmooyk"]
 
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Recyclage_1.gd" id="1_4d2xq"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Recyclage_1/Turret_Recyclage_1.gd" id="1_4d2xq"]
 [ext_resource type="Texture2D" uid="uid://bb4knkmm6d5fp" path="res://Assets/Towers/Towers bases/PNGs/Tower 08.png" id="1_4ia21"]
 [ext_resource type="Texture2D" uid="uid://cfn1m8ea2rabr" path="res://Assets/Towers/Towers Weapons/Tower 08/Spritesheets/Tower 08 - Level 01 - Weapon.png" id="2_amg3h"]
 
@@ -86,6 +86,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wk4w"]
+radius = 20.0
+
 [node name="TurretRecyclage1" type="Node2D"]
 script = ExtResource("1_4d2xq")
 
@@ -95,3 +98,11 @@ texture = SubResource("AtlasTexture_7rstt")
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_mms3y")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_0wk4w")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

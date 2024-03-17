@@ -1,35 +1,35 @@
 [gd_scene load_steps=12 format=3 uid="uid://dd334e8o2kk1h"]
 
-[ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="1_i75j7"]
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Bow_3.gd" id="1_rdn0a"]
-[ext_resource type="Texture2D" uid="uid://cc7o7ndfy5jdc" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 03 - Weapon.png" id="2_edj3m"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Bow_3/Turret_Bow_3.gd" id="1_ivlaf"]
+[ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="2_ohr2g"]
+[ext_resource type="Texture2D" uid="uid://cc7o7ndfy5jdc" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 03 - Weapon.png" id="3_0b26e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofg6b"]
-atlas = ExtResource("1_i75j7")
+atlas = ExtResource("2_ohr2g")
 region = Rect2(127.777, 11.0698, 63.5014, 116.93)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gcw27"]
-atlas = ExtResource("2_edj3m")
+atlas = ExtResource("3_0b26e")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vy51u"]
-atlas = ExtResource("2_edj3m")
+atlas = ExtResource("3_0b26e")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx4h7"]
-atlas = ExtResource("2_edj3m")
+atlas = ExtResource("3_0b26e")
 region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg36q"]
-atlas = ExtResource("2_edj3m")
+atlas = ExtResource("3_0b26e")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_283wf"]
-atlas = ExtResource("2_edj3m")
+atlas = ExtResource("3_0b26e")
 region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhikq"]
-atlas = ExtResource("2_edj3m")
+atlas = ExtResource("3_0b26e")
 region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ihg0"]
@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [node name="Turret_Bow_3" type="Node2D"]
-script = ExtResource("1_rdn0a")
+script = ExtResource("1_ivlaf")
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_ofg6b")

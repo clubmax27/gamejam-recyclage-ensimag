@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://byj34cybocuj0"]
+
+[ext_resource type="Script" path="res://Scenes/Turret/Turret_Bow_1/Turret_Bow_1_Projectile.gd" id="1_tuyrg"]
+[ext_resource type="Texture2D" uid="uid://shvyyvs6q04a" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Projectile.png" id="2_cpbld"]
+
+[sub_resource type="Curve2D" id="Curve2D_g57rq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27dhw"]
+atlas = ExtResource("2_cpbld")
+region = Rect2(0, 0, 40, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jadk0"]
+atlas = ExtResource("2_cpbld")
+region = Rect2(0, 8, 40, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5hp6"]
+atlas = ExtResource("2_cpbld")
+region = Rect2(0, 16, 40, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4b8c6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27dhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jadk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5hp6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TurretBow1Projectile" type="Path2D"]
+curve = SubResource("Curve2D_g57rq")
+
+[node name="ProjectilePathFollow" type="PathFollow2D" parent="."]
+script = ExtResource("1_tuyrg")
+
+[node name="Projectile" type="Node2D" parent="ProjectilePathFollow"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="ProjectilePathFollow/Projectile"]
+position = Vector2(20, 0)
+sprite_frames = SubResource("SpriteFrames_4b8c6")
