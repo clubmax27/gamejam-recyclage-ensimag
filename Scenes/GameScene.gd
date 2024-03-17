@@ -4,6 +4,7 @@ var map_node
 
 var build_mode = false
 var build_valid = false
+var base_health = 100
 var build_location
 var build_type
 
@@ -114,6 +115,13 @@ func is_valid_position(current_tile) -> bool:
 	astargrid.set_point_solid(Vector2i(17 , 5), false)
 	
 	return not astargrid.get_id_path(Vector2i(1, 5), Vector2i(17 , 5)).is_empty()
+
+func on_base_damage(damage):
+	base_health -= damage
+	if base_health <= 0:
+		emit_signal("game_finished", false)
+	else:
+		get_node("UI").update_health_bar(base_health, damage)
 
 
 
