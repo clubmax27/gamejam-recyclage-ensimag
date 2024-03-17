@@ -347,5 +347,21 @@ var tower_data = {
 		"price": 70,
 		"range": 350,
 		"ressource_multiplier": 1,
-	}
+	},
+	"Turret_Upgrade_Arc_1" : {
+		"price": 500,
+		"damage": 30,
+		"rof": 0.5,
+		"range": 600,
+		"fire_delay": 0.1,
+		"has_projectile": true,
+	},
+		"Turret_Upgrade_Mage_1" : {
+		"price": 80,
+		"damage": 200,
+		"rof": 5,
+		"range": 200,
+		"fire_delay": 0.1,
+		"has_projectile": false
+	},
 }
