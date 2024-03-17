@@ -3,9 +3,9 @@ extends PathFollow2D
 var map_node
 var current_tile
 
-var speed = 150
-var hp = 50
 var type = "Goblin"
+var speed = GameData.enemy_data[type].speed
+var hp = GameData.enemy_data[type].hp
 
 var initial_position = Vector2(80, 345)
 var dead = false
@@ -58,7 +58,7 @@ func on_destroy():
 	
 func _on_animation_animation_finished():
 	if dead:
-		self.queue_free()
+		self.get_parent().get_parent().queue_free()
 
 	
 	

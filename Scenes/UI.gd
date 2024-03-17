@@ -14,7 +14,7 @@ func set_tower_preview(tower_type, mouse_position):
 	var range_texture = Sprite2D.new()
 	range_texture.set_name("RangeIndicator")
 	range_texture.position = Vector2(0, 0)
-	var scaling = GameData.tower_data[tower_type + "_1"].range / 500.0
+	var scaling = GameData.tower_data[tower_type + "_1"].range / 600.0
 	range_texture.scale = Vector2(scaling, scaling)
 	var texture = load("res://Assets/range_overlay.png")
 	range_texture.texture = texture
@@ -42,7 +42,7 @@ func _on_pause_play_pressed():
 	if get_tree().is_paused():
 		get_tree().paused = false
 	elif get_parent().current_wave == 0:
-		get_parent().current_wave += 1
+		get_parent().wave_finished_spawning = true
 		get_parent().start_next_wave()
 	else:
 		get_tree().paused = true
