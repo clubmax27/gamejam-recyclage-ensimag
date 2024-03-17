@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di2ldw8o6goit"
-path="res://.godot/imported/md-fastforward-1-64.png-ea37153d086bab6644c6e66ec48e73a5.ctex"
+uid="uid://br0vx0k76wsi3"
+path="res://.godot/imported/Gold, silver, and copper.png-d908b8087f38488ebc67f99921c1b94d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Image boutton/md-fastforward-1-64.png"
-dest_files=["res://.godot/imported/md-fastforward-1-64.png-ea37153d086bab6644c6e66ec48e73a5.ctex"]
+source_file="res://Assets/Image UI/Gold, silver, and copper.png"
+dest_files=["res://.godot/imported/Gold, silver, and copper.png-d908b8087f38488ebc67f99921c1b94d.ctex"]
 
 [params]
 

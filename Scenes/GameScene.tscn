@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=18 format=3 uid="uid://c7c10jj2efynm"]
 
 [ext_resource type="PackedScene" uid="uid://dx7gs61tr5m8k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="4_308g5"]
 [ext_resource type="Texture2D" uid="uid://bb4knkmm6d5fp" path="res://Assets/Towers/Towers bases/PNGs/Tower 08.png" id="6_gk101"]
 [ext_resource type="Texture2D" uid="uid://74l78y3noixb" path="res://Assets/Towers/Towers bases/PNGs/Tower 02.png" id="7_b4acm"]
-[ext_resource type="Texture2D" uid="uid://bfxxwwy05aiyq" path="res://Assets/Image boutton/play-button-6-64.png" id="9_gj58q"]
-[ext_resource type="Texture2D" uid="uid://5tml1arxupjx" path="res://Assets/Image boutton/icon-pause-64.png" id="10_cas1f"]
-[ext_resource type="Texture2D" uid="uid://di2ldw8o6goit" path="res://Assets/Image boutton/md-fastforward-1-64.png" id="11_tinvq"]
-[ext_resource type="Texture2D" uid="uid://doks1igpngv4c" path="res://Assets/Image boutton/ios-fastforward-outline-64.png" id="12_eu0gy"]
+[ext_resource type="Texture2D" uid="uid://bfxxwwy05aiyq" path="res://Assets/Image UI/play-button-6-64.png" id="9_gj58q"]
+[ext_resource type="Texture2D" uid="uid://5tml1arxupjx" path="res://Assets/Image UI/icon-pause-64.png" id="10_cas1f"]
+[ext_resource type="Texture2D" uid="uid://di2ldw8o6goit" path="res://Assets/Image UI/md-fastforward-1-64.png" id="11_tinvq"]
+[ext_resource type="Texture2D" uid="uid://doks1igpngv4c" path="res://Assets/Image UI/ios-fastforward-outline-64.png" id="12_eu0gy"]
+[ext_resource type="Texture2D" uid="uid://br0vx0k76wsi3" path="res://Assets/Image UI/Gold, silver, and copper.png" id="13_58k2l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kqk8"]
 atlas = ExtResource("4_308g5")
@@ -24,6 +25,10 @@ region = Rect2(0, 81.3245, 64.4442, 110.675)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dl4ir"]
 atlas = ExtResource("6_gk101")
 region = Rect2(0, 91.801, 65.211, 100.199)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ryyv"]
+atlas = ExtResource("13_58k2l")
+region = Rect2(36.8265, 221.18, 213.413, 225.967)
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_rltjy")
@@ -145,6 +150,28 @@ size_flags_horizontal = 3
 toggle_mode = true
 texture_normal = ExtResource("11_tinvq")
 texture_pressed = ExtResource("12_eu0gy")
+
+[node name="InfoBar" type="ColorRect" parent="UI/HUD"]
+self_modulate = Color(0, 0, 0, 0.470588)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/InfoBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8ryyv")
+expand_mode = 4
+
+[node name="Money value" type="Label" parent="UI/HUD/InfoBar/HBoxContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="UI/HUD/Game controller/PausePlay" to="UI" method="_on_pause_play_pressed"]
 [connection signal="pressed" from="UI/HUD/Game controller/SpeedUp" to="UI" method="_on_speed_up_pressed"]
