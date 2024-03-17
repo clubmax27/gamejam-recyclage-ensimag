@@ -139,7 +139,7 @@ shape = SubResource("CapsuleShape2D_s8xxf")
 [node name="Animation" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Minotaur"]
 sprite_frames = SubResource("SpriteFrames_a70i8")
 animation = &"Walk"
-frame_progress = 0.924497
+frame_progress = 0.958498
 
 [node name="HealthBar" type="TextureProgressBar" parent="EnemyPath/PathFollow2D"]
 offset_left = -10.0

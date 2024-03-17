@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://cgaurr4csuwa4"]
 
 [ext_resource type="Texture2D" uid="uid://74l78y3noixb" path="res://Assets/Towers/Towers bases/PNGs/Tower 02.png" id="1_7dgju"]
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Mage_1/Turret_Mage_1.gd" id="1_560j8"]
+[ext_resource type="Script" path="res://Scenes/Turret/Projectile.gd" id="1_l03hu"]
 [ext_resource type="Texture2D" uid="uid://ce7sdy84kcpsm" path="res://Assets/Towers/Towers Weapons/Tower 02/Spritesheets/Tower 02 - Level 01 - Weapon.png" id="2_ri2wm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2pwj"]
@@ -148,7 +148,7 @@ radius = 20.0
 
 [node name="Turret_Mage_1" type="Node2D"]
 z_index = 1
-script = ExtResource("1_560j8")
+script = ExtResource("1_l03hu")
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_i2pwj")
