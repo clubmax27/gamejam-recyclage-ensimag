@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7c10jj2efynm"]
+[gd_scene load_steps=25 format=3 uid="uid://c7c10jj2efynm"]
 
 [ext_resource type="PackedScene" uid="uid://dx7gs61tr5m8k" path="res://Scenes/Level_1.tscn" id="1_cppfn"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_rltjy"]
@@ -19,8 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dnivtbm32nox1" path="res://Assets/Image UI/transparent_2024-03-17T10-41-35.png" id="17_oobsl"]
 [ext_resource type="Script" path="res://Scenes/Dialogue.gd" id="18_5q3ji"]
 [ext_resource type="Texture2D" uid="uid://b0r6lcnwotln" path="res://Assets/UI/PNG/red_button00.png" id="19_s2lis"]
-[ext_resource type="Texture2D" uid="uid://c7j8hcxy31kly" path="res://Assets/bk-removebg-preview.png" id="20_308m3"]
-[ext_resource type="Texture2D" uid="uid://bs5p0smshnjy2" path="res://Assets/jacques-removebg-preview.png" id="21_sa318"]
+[ext_resource type="Texture2D" uid="uid://bt276ho3x0alw" path="res://Assets/UI/PNG/yellow_button09.png" id="20_4rkuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kqk8"]
 atlas = ExtResource("4_308g5")
@@ -234,27 +233,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("19_s2lis")
 
-[node name="Maxence" type="TextureRect" parent="UI/Background/Dialogue/TextBackground"]
-layout_mode = 0
-offset_left = 17.0
-offset_top = -289.0
-offset_right = 450.0
-offset_bottom = 288.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_308m3")
-
-[node name="Jacques" type="TextureRect" parent="UI/Background/Dialogue/TextBackground"]
+[node name="CharacterSpeaking" type="TextureRect" parent="UI/Background/Dialogue/TextBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -245.0
-offset_top = -275.0
-offset_right = 211.0
-offset_bottom = 272.0
+offset_left = -100.0
+offset_top = -100.0
 grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("21_sa318")
+texture = ExtResource("20_4rkuh")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Background/Dialogue/TextBackground"]
 layout_mode = 1
