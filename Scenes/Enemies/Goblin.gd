@@ -5,9 +5,12 @@ var current_tile
 
 var speed = 150
 var hp = 50
+
 var initial_position = Vector2(80, 345)
+var dead = false
 
 @onready var health_bar = get_node("HealthBar")
+@onready var animation = get_node("Goblin/Animation")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +20,7 @@ func _ready():
 	health_bar.set_as_top_level(true)
 	
 	
-	get_node("Goblin/Animation").play()
+	animation.play("Walk")
 	add_to_group("enemies_path")
 	set_position(initial_position)
 	set_loop(false)
@@ -29,7 +32,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	move(delta)
+	if not dead:
+		move(delta)
 
 func move(delta):
 	set_progress(progress + speed * delta)
@@ -45,10 +49,15 @@ func on_hit(damage):
 		on_destroy()
 	
 func on_destroy():
-	self.queue_free()
+	dead = true
+	animation.play("Death")
 	
 	
 	
+func _on_animation_animation_finished():
+	if dead:
+		self.queue_free()
+
 	
 	
 	
@@ -101,3 +110,4 @@ func generate_path():
 	astargrid.set_point_solid(Vector2i(17 , 5), false)
 	
 	return astargrid.get_id_path(map_node.get_node("TowerExclusion").local_to_map(global_position), Vector2i(17 , 5))
+

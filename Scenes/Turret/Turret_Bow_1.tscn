@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://p7m86hhq6t"]
+[gd_scene load_steps=18 format=3 uid="uid://p7m86hhq6t"]
 
 [ext_resource type="Texture2D" uid="uid://851a38r8afon" path="res://Assets/Towers/Towers bases/PNGs/Tower 01.png" id="1_1qmn7"]
 [ext_resource type="Script" path="res://Scenes/Turret/Turrets.gd" id="1_y1ej4"]
 [ext_resource type="Texture2D" uid="uid://d3dceykau5qpk" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Weapon.png" id="2_ry11h"]
+[ext_resource type="Texture2D" uid="uid://shvyyvs6q04a" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Projectile.png" id="4_ujilo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcfty"]
 atlas = ExtResource("1_1qmn7")
@@ -58,6 +59,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmw76"]
+atlas = ExtResource("4_ujilo")
+region = Rect2(0, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq8c1"]
+atlas = ExtResource("4_ujilo")
+region = Rect2(8, 0, 8, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4xnr"]
+atlas = ExtResource("4_ujilo")
+region = Rect2(16, 0, 8, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tag5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmw76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq8c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4xnr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_byrco"]
 radius = 20.0
 
@@ -70,6 +100,10 @@ texture = SubResource("AtlasTexture_wcfty")
 [node name="Weapon" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -23)
 sprite_frames = SubResource("SpriteFrames_b0fy8")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Weapon"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_tag5n")
 
 [node name="Range" type="Area2D" parent="."]
 
