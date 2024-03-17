@@ -318,7 +318,7 @@ var tower_data = {
 		"does_pivot": true,
 	},
 		"Turret_Upgrade_Mage_1" : {
-		"price": 60,
+		"price": 600,
 		"damage": 200,
 		"rof": 5,
 		"range": 200,

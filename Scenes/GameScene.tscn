@@ -109,6 +109,20 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_0kqk8")
 expand_mode = 4
 
+[node name="Label" type="Label" parent="UI/HUD/Build Box/Turret_Bow"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "100"
+
 [node name="Turret_Mage" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
@@ -133,6 +147,21 @@ theme_override_constants/margin_bottom = 18
 layout_mode = 2
 texture = SubResource("AtlasTexture_k0ury")
 expand_mode = 4
+
+[node name="Label" type="Label" parent="UI/HUD/Build Box/Turret_Mage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "150
+"
 
 [node name="Turret_Recyclage" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
@@ -159,6 +188,21 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_dl4ir")
 expand_mode = 4
 
+[node name="Label" type="Label" parent="UI/HUD/Build Box/Turret_Recyclage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "70
+"
+
 [node name="Turret_Upgrade_Arc" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
@@ -184,6 +228,20 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_jv6vk")
 expand_mode = 4
 
+[node name="Label" type="Label" parent="UI/HUD/Build Box/Turret_Upgrade_Arc"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "500"
+
 [node name="Turret_Upgrade_Mage" type="TextureButton" parent="UI/HUD/Build Box" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
@@ -208,6 +266,20 @@ theme_override_constants/margin_bottom = 18
 layout_mode = 2
 texture = SubResource("AtlasTexture_qagk4")
 expand_mode = 4
+
+[node name="Label" type="Label" parent="UI/HUD/Build Box/Turret_Upgrade_Mage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "600"
 
 [node name="Game controller" type="HBoxContainer" parent="UI/HUD"]
 layout_mode = 2
