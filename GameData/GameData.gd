@@ -1,5 +1,8 @@
 extends Node
 
+var player_hp = 100
+var player_gold = 2000
+
 var wave_data = [
 	[{
 		"enemy_type": "Goblin",
@@ -28,6 +31,7 @@ var enemy_data = {
 
 var tower_data = {
 	"Turret_Bow_1" : {
+		"price": 100,
 		"damage": 20,
 		"rof": 1,
 		"range": 350,
@@ -35,6 +39,7 @@ var tower_data = {
 		"has_projectile": true,
 	},
 	"Turret_Bow_2" : {
+		"price": 100,
 		"damage": 20,
 		"rof": 1,
 		"range": 350,
@@ -42,6 +47,7 @@ var tower_data = {
 		"has_projectile": true
 	},
 	"Turret_Bow_3" : {
+		"price": 100,
 		"damage": 20,
 		"rof": 1,
 		"range": 350,
@@ -49,6 +55,7 @@ var tower_data = {
 		"has_projectile": true
 	},
 	"Turret_Mage_1" : {
+		"price": 150,
 		"damage": 40,
 		"rof": 2,
 		"range": 350,
@@ -56,6 +63,7 @@ var tower_data = {
 		"has_projectile": false
 	},
 	"Turret_Mage_2" : {
+		"price": 100,
 		"damage": 40,
 		"rof": 2,
 		"range": 350,
@@ -63,6 +71,7 @@ var tower_data = {
 		"has_projectile": false
 	},
 	"Turret_Mage_3" : {
+		"price": 100,
 		"damage": 40,
 		"rof": 2,
 		"range": 350,
@@ -70,14 +79,17 @@ var tower_data = {
 		"has_projectile": false
 	},
 	"Turret_Recyclage_1" : {
+		"price": 70,
 		"range": 350,
 		"ressource_multiplier": 1,
 	},
 	"Turret_Recyclage_2" : {
+		"price": 70,
 		"range": 350,
 		"ressource_multiplier": 1,
 	},
 	"Turret_Recyclage_3" : {
+		"price": 70,
 		"range": 350,
 		"ressource_multiplier": 1,
 	}
