@@ -33,7 +33,7 @@ func select_enemy():
 	enemy = enemy_array[enemy_index]
 
 func turn():
-	if(GameData.tower_data[type]["has_projectile"]):
+	if(GameData.tower_data[type]["does_pivot"]):
 		get_node("Weapon").look_at(enemy.position)
 	
 func fire():

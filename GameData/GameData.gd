@@ -292,22 +292,7 @@ var tower_data = {
 		"range": 350,
 		"fire_delay": 0.1,
 		"has_projectile": true,
-	},
-	"Turret_Bow_2" : {
-		"price": 100,
-		"damage": 20,
-		"rof": 0.65,
-		"range": 350,
-		"fire_delay": 0.1,
-		"has_projectile": true
-	},
-	"Turret_Bow_3" : {
-		"price": 100,
-		"damage": 20,
-		"rof": 0.5,
-		"range": 350,
-		"fire_delay": 0.1,
-		"has_projectile": true
+		"does_pivot": true,
 	},
 	"Turret_Mage_1" : {
 		"price": 150,
@@ -315,35 +300,10 @@ var tower_data = {
 		"rof": 2,
 		"range": 350,
 		"fire_delay": 0.1,
-		"has_projectile": false
-	},
-	"Turret_Mage_2" : {
-		"price": 100,
-		"damage": 100,
-		"rof": 3,
-		"range": 350,
-		"fire_delay": 0.1,
-		"has_projectile": false
-	},
-	"Turret_Mage_3" : {
-		"price": 100,
-		"damage": 40,
-		"rof": 3,
-		"range": 350,
-		"fire_delay": 0.1,
-		"has_projectile": false
+		"has_projectile": false,
+		"does_pivot": false,
 	},
 	"Turret_Recyclage_1" : {
-		"price": 70,
-		"range": 350,
-		"ressource_multiplier": 1,
-	},
-	"Turret_Recyclage_2" : {
-		"price": 70,
-		"range": 350,
-		"ressource_multiplier": 1,
-	},
-	"Turret_Recyclage_3" : {
 		"price": 70,
 		"range": 350,
 		"ressource_multiplier": 1,
@@ -355,6 +315,7 @@ var tower_data = {
 		"range": 600,
 		"fire_delay": 0.1,
 		"has_projectile": true,
+		"does_pivot": true,
 	},
 		"Turret_Upgrade_Mage_1" : {
 		"price": 60,
@@ -362,6 +323,7 @@ var tower_data = {
 		"rof": 5,
 		"range": 200,
 		"fire_delay": 0.1,
-		"has_projectile": true
+		"has_projectile": true,
+		"does_pivot": false,
 	},
 }
