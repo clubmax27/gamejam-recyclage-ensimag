@@ -15,6 +15,8 @@ var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameData.player_gold = 500
+	get_node("UI").update_gold(0)
 	map_node = get_node("Level")  ## sélectionner la carte
 	for button in get_tree().get_nodes_in_group("build_buttons"):  ## pour que cela fonctionne pour toutes les tours et récupère le nom
 		button.pressed.connect(initiate_build_mode.bind(button.get_name()))
@@ -79,16 +81,20 @@ func cancel_build_mode():
 	
 func verify_and_build():
 	if build_valid:
-		## on peut verifier les conditions de ressources ici
 		var new_tower = load("res://Scenes/Turret/" + build_type + "_1/" + build_type + "_1.tscn").instantiate()  ## modifier avec le chemin d'acces de la tour
-		new_tower.position = build_location
-		new_tower.built = true
 		new_tower.type = build_type + "_1"
-		map_node.get_node("Towers").add_child(new_tower, true)
-		get_tree().call_group("enemies_path", "reconfigure_path_node")
-		
-		## enlever les ressources 
-		## update player ui
+		## on peut verifier les conditions de ressources ici
+		var tower_cost = GameData.tower_data[new_tower.type].price
+		if get_node("UI").update_gold((-1)* tower_cost) == 0:  # il y a asser d'agent  
+			new_tower.position = build_location
+			new_tower.built = true
+			map_node.get_node("Towers").add_child(new_tower, true)
+			get_tree().call_group("enemies_path", "reconfigure_path_node")
+		else:
+			#peut etre créer un événement pour mettre un son ou jsp
+			build_mode = false
+			build_valid = false
+
 		
 func is_valid_position(current_tile) -> bool:
 	# Check if node is a TowerExclusion Tile
@@ -137,6 +143,7 @@ func on_base_damage(damage):
 		emit_signal("game_finished", false)
 	else:
 		get_node("UI").update_health_bar(base_health, damage)
+		
 
 
 
