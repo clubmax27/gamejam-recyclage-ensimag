@@ -133,6 +133,7 @@ func is_valid_position(current_tile) -> bool:
 func on_base_damage(damage):
 	base_health -= damage
 	if base_health <= 0:
+		get_node("UI").update_health_bar(base_health, base_health)
 		emit_signal("game_finished", false)
 	else:
 		get_node("UI").update_health_bar(base_health, damage)

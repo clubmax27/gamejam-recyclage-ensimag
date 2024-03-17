@@ -25,6 +25,7 @@ var enemy_data = {
 	"Goblin" : {
 		"hp": 5,
 		"speed": 150,
+		"damage": 10,
 		"gold": 10
 	}
 }

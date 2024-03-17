@@ -10,6 +10,7 @@ var hp = GameData.enemy_data[type].hp
 var initial_position = Vector2(80, 345)
 var dead = false
 var looted = false
+var did_damage = false
 
 @onready var health_bar = get_node("HealthBar")
 @onready var animation = get_node("Goblin/Animation")
@@ -34,6 +35,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if progress_ratio >= 1.0 && not did_damage:
+		did_damage = true
+		get_tree().root.get_child(1).on_base_damage(GameData.enemy_data[type].damage)
+		on_destroy()
 	if not dead:
 		move(delta)
 
