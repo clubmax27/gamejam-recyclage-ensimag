@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://cm2jg0oy6b0pr"]
+
+[ext_resource type="Texture2D" uid="uid://f0b6m7mg2jue" path="res://Assets/Towers/Towers bases/PNGs/Tower 06.png" id="1_acnnu"]
+[ext_resource type="Script" path="res://Scenes/Turret/Turrets.gd" id="1_n7inv"]
+[ext_resource type="Texture2D" uid="uid://duddnpre8x42o" path="res://Assets/Towers/Towers Weapons/Tower 06/Spritesheets/Tower 06 - Level 01 - Weapon.png" id="2_ml5as"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4abi"]
+atlas = ExtResource("1_acnnu")
+region = Rect2(0, 27.612, 65.6775, 100.388)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lb4t"]
+atlas = ExtResource("2_ml5as")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcfdm"]
+atlas = ExtResource("2_ml5as")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x32l2"]
+atlas = ExtResource("2_ml5as")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vqxe"]
+atlas = ExtResource("2_ml5as")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0td0"]
+atlas = ExtResource("2_ml5as")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jbgq"]
+atlas = ExtResource("2_ml5as")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn40s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lb4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcfdm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x32l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vqxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0td0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jbgq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vitjs"]
+radius = 20.0
+
+[node name="Turret_Upgrade_Arc_1" type="Node2D"]
+script = ExtResource("1_n7inv")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_w4abi")
+
+[node name="Weapon" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -23)
+sprite_frames = SubResource("SpriteFrames_qn40s")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_vitjs")

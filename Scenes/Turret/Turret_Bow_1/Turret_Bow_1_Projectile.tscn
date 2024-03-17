@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://byj34cybocuj0"]
 
-[ext_resource type="Script" path="res://Scenes/Turret/Turret_Bow_1/Turret_Bow_1_Projectile.gd" id="1_tuyrg"]
+[ext_resource type="Script" path="res://Scenes/Turret/Projectile.gd" id="1_tuyrg"]
 [ext_resource type="Texture2D" uid="uid://shvyyvs6q04a" path="res://Assets/Towers/Towers Weapons/Tower 01/Spritesheets/Tower 01 - Level 01 - Projectile.png" id="2_cpbld"]
 
 [sub_resource type="Curve2D" id="Curve2D_g57rq"]

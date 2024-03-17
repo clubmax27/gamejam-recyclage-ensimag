@@ -1,0 +1,111 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2lmje6beaw52"]
+
+[ext_resource type="Script" path="res://Scenes/Turret/Projectile.gd" id="1_4m0kx"]
+[ext_resource type="Texture2D" uid="uid://072ywqbc337v" path="res://Assets/Towers/Towers Weapons/Tower 05/Spritesheets/Tower 05 - Level 01 - Projectile.png" id="2_5dp84"]
+
+[sub_resource type="Curve2D" id="Curve2D_t0aim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j28u0"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvgm6"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqdmx"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4gdh"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t48h"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5m4o"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwht4"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdsa3"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66fxp"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34dnf"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vergf"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u2ap"]
+atlas = ExtResource("2_5dp84")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55b1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j28u0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvgm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqdmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4gdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t48h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5m4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwht4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdsa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66fxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34dnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vergf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u2ap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="TurretUpgradeMageProjectile1" type="Path2D"]
+curve = SubResource("Curve2D_t0aim")
+
+[node name="ProjectilePathFollow" type="PathFollow2D" parent="."]
+script = ExtResource("1_4m0kx")
+
+[node name="Projectile" type="Node2D" parent="ProjectilePathFollow"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="ProjectilePathFollow/Projectile"]
+position = Vector2(20, 0)
+sprite_frames = SubResource("SpriteFrames_55b1s")
+frame_progress = 0.190451
