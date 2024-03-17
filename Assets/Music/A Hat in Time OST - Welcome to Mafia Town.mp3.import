@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cuhgvh3gfs5lr"
+path="res://.godot/imported/A Hat in Time OST - Welcome to Mafia Town.mp3-772ee2cfc6772d2ad00c2268dc672d0b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/A Hat in Time OST - Welcome to Mafia Town.mp3"
+dest_files=["res://.godot/imported/A Hat in Time OST - Welcome to Mafia Town.mp3-772ee2cfc6772d2ad00c2268dc672d0b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

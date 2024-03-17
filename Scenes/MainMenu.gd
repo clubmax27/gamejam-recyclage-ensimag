@@ -2,6 +2,7 @@ extends Control
 var  info_is_pressed = true
 
 func _ready():
+	get_node("Music").play()
 	get_node("MarginContainer/HBoxContainer/ColorRect").set_color(Color(0,0,0,0))
 	get_node("MarginContainer/HBoxContainer/ColorRect/text").set_visible_characters(0)
 

@@ -1,0 +1,155 @@
+[gd_scene load_steps=22 format=3 uid="uid://cst36wfs11edd"]
+
+[ext_resource type="Texture2D" uid="uid://16grgu07pjnh" path="res://Assets/Enemies/Minotaur/Minotaur - Sprite Sheet.png" id="1_0v13h"]
+[ext_resource type="Texture2D" uid="uid://c68vupcw5adgu" path="res://Assets/UI/PNG/barHorizontal_red_mid.png" id="2_0imlv"]
+[ext_resource type="Texture2D" uid="uid://c1ghqcd47alqe" path="res://Assets/UI/PNG/barHorizontal_green_mid.png" id="3_k3yai"]
+
+[sub_resource type="Curve2D" id="Curve2D_s10vm"]
+
+[sub_resource type="GDScript" id="GDScript_3xdeg"]
+script/source = "extends \"res://Scenes/Enemies/Enemy.gd\"
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8xxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpm7x"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(0, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h3sj"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(96, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3reo"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(192, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm1x2"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(288, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do8xn"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(384, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51u1p"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(480, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxgrw"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghsjy"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p5h7"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cugx4"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(288, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpmqx"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(384, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqaab"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(480, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahsjb"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(576, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orkx8"]
+atlas = ExtResource("1_0v13h")
+region = Rect2(672, 96, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a70i8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpm7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h3sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3reo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm1x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do8xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51u1p")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxgrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghsjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p5h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cugx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpmqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqaab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahsjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orkx8")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_s10vm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath" groups=["enemies_path"]]
+script = SubResource("GDScript_3xdeg")
+
+[node name="Minotaur" type="CharacterBody2D" parent="EnemyPath/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyPath/PathFollow2D/Minotaur"]
+shape = SubResource("CapsuleShape2D_s8xxf")
+
+[node name="Animation" type="AnimatedSprite2D" parent="EnemyPath/PathFollow2D/Minotaur"]
+sprite_frames = SubResource("SpriteFrames_a70i8")
+animation = &"Walk"
+frame_progress = 0.924497
+
+[node name="HealthBar" type="TextureProgressBar" parent="EnemyPath/PathFollow2D"]
+offset_left = -10.0
+offset_top = -19.0
+offset_right = 10.0
+offset_bottom = -13.0
+value = 30.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_0imlv")
+texture_progress = ExtResource("3_k3yai")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="animation_finished" from="EnemyPath/PathFollow2D/Minotaur/Animation" to="EnemyPath/PathFollow2D" method="_on_animation_animation_finished"]
