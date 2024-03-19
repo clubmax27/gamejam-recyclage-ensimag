@@ -74,7 +74,6 @@ func _on_animation_animation_finished():
 func reconfigure_path_node():
 	var path_array = generate_path()
 	var path = get_parent().curve
-	print(path)
 	
 	path.clear_points()
 	set_progress(0)

@@ -250,13 +250,15 @@ var enemy_data = {
 		"damage": 5,
 		"gold": 10
 	},
-	"Small Blob" : {
+	# Big blob and Small blob were inverted
+	# Bug was found by Iseniel
+	"Big Blob" : {
 		"hp": 50,
 		"speed": 40,
 		"damage": 5,
 		"gold": 2
 	},
-	"Big Blob" : {
+	"Small Blob" : {
 		"hp": 10,
 		"speed": 75,
 		"damage": 5,

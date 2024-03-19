@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var hp_bar = get_node("HUD/InfoBar/HBoxContainer/HP bar")
-@onready var hp_bar_tween = hp_bar.create_tween()
 @onready var money_value = get_node("HUD/InfoBar/HBoxContainer/Money value")
 
 func set_tower_preview(tower_type, mouse_position):
@@ -54,10 +53,9 @@ func _on_speed_up_pressed():
 		Engine.set_time_scale(2.0)
 
 func update_health_bar(health_value, damage):
-	if health_value <= damage:
-		hp_bar.value = 0
-		return
-	Tween.interpolate_value(health_value, damage, 0.5, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	var hp_bar_tween = create_tween()
+	hp_bar_tween.tween_property(hp_bar, "value", health_value, 0.5)
+	
 	if health_value >= 60:
 		hp_bar.set_tint_progress("4eff15") #green
 	elif 60 > health_value and health_value >= 25:
@@ -65,7 +63,6 @@ func update_health_bar(health_value, damage):
 	else:
 		hp_bar.set_tint_progress("e11e1e") #red
 	
-	hp_bar.value -= damage
 	
 	
 func update_gold(delta):
